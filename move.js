@@ -24,7 +24,7 @@ class Move {
 
     // equals: returns whether toString() of current Move and comparable Move are equal
     equals(otherMove) {
-        return toString() == otherMove.toString();
+        return this.toString() == otherMove.toString();
     }
 
 }
