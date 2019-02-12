@@ -1,16 +1,16 @@
 // Represents a move of the game
 class Move {
 
-    constructor() {
+    constructor(direction) {
         // direction - string; initializes with empty string by default
         // valid directions: "UP", "DOWN", "LEFT", "RIGHT"
-        this.direction = "";
+        this.direction = direction;
     }
 
     // Mutators
     setDirection(newDirection) {
         this.direction = newDirection;
-        console.log(this.direction);
+        console.log("Direction is set to " + this.direction);
         return this.direction;
     }
 
