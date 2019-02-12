@@ -1,8 +1,10 @@
+// Tests for Move.js
 class MoveTest extends Test{
     constructor(){
         super();
     }
 
+    //Tests Move.getDirection().
     getDirection(){
         const up = new Move("UP");
         this.assertEquals("UP", up.getDirection());
