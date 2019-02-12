@@ -3,6 +3,7 @@ class Move {
 
     constructor(direction) {
         // direction - string; initializes with empty string by default
+        if (direction === undefined) { direction = ""; }
         // valid directions: "UP", "DOWN", "LEFT", "RIGHT"
         this.direction = direction;
     }

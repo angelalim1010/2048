@@ -25,9 +25,7 @@ class Test {
       }
   
       this.assertTrue(testCount > 0);
-      console.log(
-          `Test ${testName} passed: ` +
-          `${new PluralWord('testcase').getDisplay(testCount)} passed.`);
+      console.log(`Test ${testName} passed`);
     }
   
     // Reports a test error if two quantities are not equal.
