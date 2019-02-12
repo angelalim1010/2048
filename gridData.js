@@ -20,10 +20,10 @@ class GridData {
     // toString: returns string version of this.data (in array format)
     toString() {
         var res = "";
-        for (let i = 0; i < this.data.length; i++) {
+        for (let row = 0; row < this.data.length; row++) {
             res += "[";
-            for (let j = 0; j < this.data[i].length; j++) {
-                res += this.data[i][j].toString() + ", ";
+            for (let col = 0; col < this.data[col].length; col++) {
+                res += this.data[row][col].toString() + ", ";
             }
             res = res.substring(0, res.length-2);
             res += "],";
@@ -37,15 +37,16 @@ class GridData {
         return toString() == otherGridData.toString();
     }
     
-    getCopy(){
-        var newBoard = [];
+    // getCopy: returns a copy of this.data (4x4 2d array)
+    getCopy() {
+        var copy = [];
         for(var row = 0; row < this.data.length; row++){
-            newBoard.push([]);
+            copy.push([]);
             for(var col = 0; col < this.data[row].length; col++){
-                newBoard[row].push(this.data[row][col]);
+                copy[row].push(this.data[row][col]);
             }
         }
-        return newBoard;
+        return copy;
     }
 
 }
