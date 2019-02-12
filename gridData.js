@@ -1,5 +1,5 @@
 // Represents the data of the 2048 grid
-class gridData {
+class GridData {
 
     constructor() {
         // data - 4x4 2d array; prepopulate with 0's by default
