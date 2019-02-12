@@ -1,10 +1,10 @@
 // Represents a move of the game
 class Move {
 
-    constructor() {
+    constructor(direction) {
         // direction - string; initializes with empty string by default
         // valid directions: "UP", "DOWN", "LEFT", "RIGHT"
-        this.direction = "";
+        this.direction = direction;
     }
 
     // Mutators
@@ -16,6 +16,11 @@ class Move {
 
     // Accessors
     getDirection() { return this.direction; }
+
+    getNextBoard(currentBoard){
+        var newBoard = new MoveBoard(this.direction, currentBoard);
+        return newBoard.getNextBoard();
+    }
 
 }
 // End Move.js
