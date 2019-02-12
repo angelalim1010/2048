@@ -1,18 +1,26 @@
+// Represents the computer of the next board
 class NextBoardComputer{
-
-    constructor(move){
+    constructor(move, board){
         this.move = move;
+        this.board = board;
     }
 
-    getNextBoard(board){
-        var nextBoard = board.getCopy();
-        if(this.direction == "UP") this._shiftUp(nextBoard);
-        else if(this.direction == "DOWN") this._shiftDown(nextBoard);
-        else if(this.direction == "LEFT") this._shiftLeft(nextBoard);
-        else if(this.direction == "RIGHT") this._shiftRight(nextBoard);
+    /**
+     * Returns the next board after a move.
+     * @return {GridData} nextBoard - the next board.
+     */
+    getNextBoard(){
+        var nextBoard = new GridData();
+        var newBoard = this.board.getCopy();
+        if(this.move.getDirection() == "UP") this._shiftUp(newBoard);
+        else if(this.move.getDirection() == "DOWN") this._shiftDown(newBoard);
+        else if(this.move.getDirection() == "LEFT") this._shiftLeft(newBoard);
+        else if(this.move.getDirection() == "RIGHT") this._shiftRight(newBoard);
+        nextBoard.setData(newBoard);
         return nextBoard;
     }
 
+    // Shifts board data up
     _shiftUp(board){
         var i = undefined;
         for(var col = 0; col < board[0].length; col++){
@@ -45,6 +53,7 @@ class NextBoardComputer{
         }
     }
 
+    // Shifts board data down
     _shiftDown(board){
         var i = undefined;
         for(var col = 0; col < board[0].length; col++){
@@ -77,6 +86,7 @@ class NextBoardComputer{
         }
     }
 
+    // Shifts board data left
     _shiftLeft(board){
         var i = undefined;
         for(var row = 0; row < board.length; row++){
@@ -84,9 +94,9 @@ class NextBoardComputer{
                 if(board[row][col] != 0){
                     i = col + 1;
                     while(i < board[row].length){
-                        if(board[row][col] == board[i][col]){
+                        if(board[row][col] == board[row][i]){
                             board[row][col] = 2 * board[row][col];
-                            board[i][col] = 0;
+                            board[row][i] = 0;
                             break;
                         }else if(board[i][col] != 0) break;
                         else i++;
@@ -108,6 +118,7 @@ class NextBoardComputer{
         }
     }
 
+    // Handles shifting board right
     _shiftRight(board){
         var i = undefined;
         for(var row = 0; row < board.length; row++){
@@ -115,11 +126,11 @@ class NextBoardComputer{
                 if(board[row][col] != 0){
                     i = col - 1;
                     while(i >= 0){
-                        if(board[row][col] == board[i][col]){
+                        if(board[row][col] == board[row][i]){
                             board[row][col] = 2 * board[row][col];
-                            board[i][col] = 0;
+                            board[row][i] = 0;
                             break;
-                        }else if(board[i][col] != 0) break;
+                        }else if(board[row][i] != 0) break;
                         else i--;
                     }
                     i = undefined;
