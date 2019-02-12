@@ -1,28 +1,16 @@
-class MoveBoard{
+class NextBoardComputer{
 
-    constructor(direction, board){
-        this.direction = direction;
-        this.board = board;
+    constructor(move){
+        this.move = move;
     }
 
-    getNextBoard(){
-        var nextBoard = this._copyBoard(this.board);
+    getNextBoard(board){
+        var nextBoard = board.getCopy();
         if(this.direction == "UP") this._shiftUp(nextBoard);
         else if(this.direction == "DOWN") this._shiftDown(nextBoard);
         else if(this.direction == "LEFT") this._shiftLeft(nextBoard);
         else if(this.direction == "RIGHT") this._shiftRight(nextBoard);
         return nextBoard;
-    }
-
-    _copyBoard(board){
-        var newBoard = [];
-        for(var row = 0; row < board.length; row++){
-            newBoard.push([]);
-            for(var col = 0; col < board[row].length; col++){
-                newBoard[row].push(board[row][col]);
-            }
-        }
-        return newBoard;
     }
 
     _shiftUp(board){

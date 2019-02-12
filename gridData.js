@@ -17,5 +17,16 @@ class GridData {
     // Accessors
     getData() { return this.data; }
 
+    getCopy(){
+        var newBoard = [];
+        for(var row = 0; row < this.data.length; row++){
+            newBoard.push([]);
+            for(var col = 0; col < this.data[row].length; col++){
+                newBoard[row].push(this.data[row][col]);
+            }
+        }
+        return newBoard;
+    }
+
 }
 // End gridData.js

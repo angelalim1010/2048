@@ -10,17 +10,12 @@ class Move {
     // Mutators
     setDirection(newDirection) {
         this.direction = newDirection;
-        console.log(this.direction);
+        console.log("Direction is set to " + this.direction);
         return this.direction;
     }
 
     // Accessors
     getDirection() { return this.direction; }
-
-    getNextBoard(currentBoard){
-        var newBoard = new MoveBoard(this.direction, currentBoard);
-        return newBoard.getNextBoard();
-    }
 
 }
 // End Move.js

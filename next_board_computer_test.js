@@ -1,9 +1,9 @@
-class MoveTest extends Test{
+class NextBoardComputerTest extends Test{
     constructor(){
         super();
     }
 
-    getDirection(){
+    getNextBoard(){
         const up = new Move("UP");
         this.assertEquals("UP", up.getDirection());
 
@@ -18,4 +18,4 @@ class MoveTest extends Test{
     }
 }
 
-new MoveTest().runAll();
+new NextBoardComputerTest().runAll();
