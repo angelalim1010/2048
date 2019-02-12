@@ -8,7 +8,11 @@ class Move {
     }
 
     // Mutators
-    setDirection(newDirection) { return this.direction = newDirection; }
+    setDirection(newDirection) {
+        this.direction = newDirection;
+        console.log(this.direction);
+        return this.direction;
+    }
 
     // Accessors
     getDirection() { return this.direction; }
