@@ -1,5 +1,7 @@
+//class that listens to keyboard inputs
 class InputHandler{
       constructor(move){
+        //creates a new instance of the Move class
         this.move = Move();
         document.addEventListener('keydown', event => {
         switch(event.key){
