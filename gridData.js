@@ -48,5 +48,21 @@ class GridData {
         return copy;
     }
 
+    // renderGrid: returns this.data in a HTML table format
+    renderGrid() {
+        var res = "<table class='grid'>";
+        for (let row = 0; row < this.data.length; row++) {
+            res += "<tr>";
+            for (let col = 0; col < this.data[row].length; col++) {
+                res += "<th>" + this.data[row][col].toString() + "</th>";
+            }
+            res = res.substring(0, res.length-1);
+            res += "</tr>";
+        }
+        res = res.substring(0, res.length-1);
+        res += "</table>";
+        return res;
+    }
+
 }
 // End gridData.js
