@@ -1,0 +1,43 @@
+// style src: https://codepen.io/tommiehansen/pen/YWwGvZ
+@padding: 10px;
+@padding-half: @padding/2;
+@padding-double: @padding*2;
+
+h1, p { 
+	text-align:center; 
+}
+
+h1 { 
+	margin-bottom:0; 
+}
+
+p { 
+	margin-top:10px; margin-bottom:20px; color: #888; 
+}
+
+body { 
+	margin: 40px 0; background: #eee; 
+}
+.grid {
+	max-width: 600px;
+	margin: 0 auto;
+	border: 1px dashed #aaa;
+	padding: @padding-double;
+}
+
+.row {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	height: 100%;
+	border-spacing: 5px;
+}
+
+.row div {
+	background: #fff; 
+	text-align: center; 
+	color: #888; 
+	font-size: 90%; 
+	border:1px solid #ddd;
+	display: table-cell;
+}

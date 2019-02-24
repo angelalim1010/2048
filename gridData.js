@@ -50,17 +50,17 @@ class GridData {
 
     // renderGrid: returns this.data in a HTML table format
     renderGrid() {
-        var res = "<table class='grid'>";
+        var res = "<div class='grid'>\n";
         for (let row = 0; row < this.data.length; row++) {
-            res += "<tr>";
+            res += "<div class='row'>\n";
             for (let col = 0; col < this.data[row].length; col++) {
-                res += "<th>" + this.data[row][col].toString() + "</th>";
+                res += "<div>" + this.data[row][col].toString() + "</div>\n";
             }
-            res = res.substring(0, res.length-1);
-            res += "</tr>";
+            // res = res.substring(0, res.length-1);
+            res += "</div>\n";
         }
-        res = res.substring(0, res.length-1);
-        res += "</table>";
+        // res = res.substring(0, res.length-1);
+        res += "</div>\n";
         return res;
     }
 
