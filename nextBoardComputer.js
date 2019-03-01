@@ -20,6 +20,21 @@ class NextBoardComputer{
         return nextBoard;
     }
 
+    // Spawns a new number at a random place on board
+    _getNewNumber(board){
+      var randRow = Math.floor((Math.random() * board.length) + 1);
+      var randCol = Math.floor((Math.random() * board[0].length) + 1);
+
+      var randNum = 2 * Math.floor((Math.random() * 2) + 1);
+
+      while(board[randRow][randCol] != 0){
+        randRow = Math.floor((Math.random() * board.length) + 1);
+        randCol = Math.floor((Math.random() * board[0].length) + 1);
+      }
+
+      board[randRow][randCol] = randNum;
+    }
+
     // Shifts board data up
     _shiftUp(board){
         var i = undefined;
