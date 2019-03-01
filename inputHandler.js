@@ -1,11 +1,9 @@
 //class that listens to keyboard inputs
-class InputHandler{
-    constructor(){
+class InputHandler {
+    constructor() {
       const keyDown = this._keyDown.bind(this);
       window.addEventListener('keydown', keyDown);
-
     }
-
 
     _keyDown(event){
       const keyCode = event.key;
