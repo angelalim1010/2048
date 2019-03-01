@@ -4,7 +4,7 @@ class Test {
     // Runs all the tests.
     runAll() {
       const testName = this.__proto__.constructor.name;
-      console.log(`Running test: ${testName}`);
+      console.log(`--> Running test: ${testName}`);
   
       let testCount = 0;
       let reflection = Reflect.getPrototypeOf(this);
@@ -21,13 +21,11 @@ class Test {
         console.log(`Running testcase: ${testcaseName}`);
         ++testCount;
         this[functionName]();
-        console.log(`Test ${testcaseName} passed`);
+        console.log(`Testcase ${testcaseName} passed`);
       }
   
       this.assertTrue(testCount > 0);
-      console.log(
-          `Test ${testName} passed: ` +
-          `${new PluralWord('testcase').getDisplay(testCount)} passed.`);
+      console.log(`Success: All tests of ${testName} passed`);
     }
   
     // Reports a test error if two quantities are not equal.
@@ -55,6 +53,6 @@ class Test {
   
     // Causes the error to interrupt the program.
     reportFailure(error) {
-      throw new Error(`Test failure: ${error}`);
+      throw new Error(`Failure: Test failure: ${error}`);
     }
   }

@@ -1,14 +1,17 @@
 // Represents the data of the 2048 grid
 class GridData {
 
-    constructor() {
+    constructor(data) {
         // data - 4x4 2d array; prepopulate with 0's by default
-        this.data = [
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0]
-        ];
+        if (data === undefined) {
+            data = [
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]
+            ]
+        }
+        this.data = data;
     }
 
     // Mutators
@@ -19,34 +22,46 @@ class GridData {
 
     // toString: returns string version of this.data (in array format)
     toString() {
-        var res = "";
+        var res = "[";
         for (let row = 0; row < this.data.length; row++) {
             res += "[";
-            for (let col = 0; col < this.data[col].length; col++) {
-                res += this.data[row][col].toString() + ", ";
+            for (let col = 0; col < this.data[row].length; col++) {
+                res += this.data[row][col].toString() + ",";
             }
-            res = res.substring(0, res.length-2);
+            res = res.substring(0, res.length-1);
             res += "],";
         }
         res = res.substring(0, res.length-1);
+        res += "]";
         return res;
     }
 
     // equals: returns whether toString() of current GridData and comparable GridData are equal
     equals(otherGridData) {
-        return toString() == otherGridData.toString();
+        return this.toString() == otherGridData.toString();
     }
     
-    // getCopy: returns a copy of this.data (4x4 2d array)
-    getCopy() {
-        var copy = [];
-        for(var row = 0; row < this.data.length; row++){
-            copy.push([]);
-            for(var col = 0; col < this.data[row].length; col++){
-                copy[row].push(this.data[row][col]);
-            }
-        }
+    // copy: returns a copy of this.data (4x4 2d array)
+    copy() {
+        var copy = new GridData();
+        copy.setData(this.getData())
         return copy;
+    }
+
+    // renderGrid: returns this.data in a HTML table format
+    renderGrid() {
+        var res = "<div class='grid'>\n";
+        for (let row = 0; row < this.data.length; row++) {
+            res += "<div class='row'>\n";
+            for (let col = 0; col < this.data[row].length; col++) {
+                res += "<div>" + this.data[row][col].toString() + "</div>\n";
+            }
+            // res = res.substring(0, res.length-1);
+            res += "</div>\n";
+        }
+        // res = res.substring(0, res.length-1);
+        res += "</div>\n";
+        return res;
     }
 
 }

@@ -11,7 +11,7 @@ class NextBoardComputer{
      */
     getNextBoard(){
         var nextBoard = new GridData();
-        var newBoard = this.board.getCopy();
+        var newBoard = this.board.copy();
         if(this.move.getDirection() == "UP") this._shiftUp(newBoard);
         else if(this.move.getDirection() == "DOWN") this._shiftDown(newBoard);
         else if(this.move.getDirection() == "LEFT") this._shiftLeft(newBoard);
