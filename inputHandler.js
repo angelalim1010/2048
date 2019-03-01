@@ -1,28 +1,30 @@
 //class that listens to keyboard inputs
 class InputHandler {
-    constructor() {
+    constructor(callback) {
+      this.callback = callback;
       const keyDown = this._keyDown.bind(this);
       window.addEventListener('keydown', keyDown);
     }
 
     _keyDown(event){
-      const keyCode = event.key;
+      console.log('triggered');
+     const keyCode = event.key;
 
       switch(keyCode){
         case "ArrowUp":
-          this.move = new Move("UP");
+          this.callback("UP");
           console.log("the up arrow was pressed");
           break;
         case "ArrowDown":
-          this.move = new Move("DOWN");
+          this.callback("UP");
           console.log("the down arrow was pressed");
           break;
         case "ArrowRight":
-          this.move = new Move("RIGHT");
+          this.callback("UP");
           console.log("the right arrow was pressed");
         break;
         case "ArrowLeft":
-          this.move = new Move("LEFT");
+          this.callback("UP");
           console.log("the left arrow was pressed");
         break;
       };
