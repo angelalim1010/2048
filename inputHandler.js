@@ -23,12 +23,12 @@ class InputHandler {
           break;
         case "ArrowRight":
         //will set the direction of move to right
-          this.callback("LEFT");
+          this.callback("RIGHT");
           console.log("the right arrow was pressed");
         break;
         case "ArrowLeft":
         //will set the direction of move to left
-          this.callback("RIGHT");
+          this.callback("LEFT");
           console.log("the left arrow was pressed");
         break;
       };
