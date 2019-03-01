@@ -2,7 +2,8 @@ class Game {
     constructor() {
         this.gridData = new GridData();
         this.gridDisplay = document.getElementById('grid-container');
-        this.inputHandler = new InputHandler();
+        const move = new Move();
+        const inputHandler = new InputHandler(move.setDirection);
     }
 
     // Starts a new game from the beginning

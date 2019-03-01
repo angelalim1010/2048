@@ -22,6 +22,4 @@ console.log(`
 `);
 console.log('Starting up a new game...');
 const game = new Game();
-const move = new Move();
-const input = new InputHandler(move.setDirection);
 game.play();
