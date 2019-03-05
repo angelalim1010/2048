@@ -8,14 +8,25 @@ class GridDataTest extends Test {
     // Test for gridData.toString()
     toString() {
         // Test 1
-        var grid = new GridData();
-        var actualString = grid.toString();
+        var gridData = new GridData(); 
+        // Default data: [
+        //     [0, 0, 0, 0],
+        //     [0, 0, 0, 0],
+        //     [0, 0, 0, 0],
+        //     [0, 0, 0, 0]
+        // ]
+        var actualString = gridData.toString();
         var expectedString = "[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]";
         this.assertEquals(expectedString, actualString);
 
         // Test 2
-        grid.setData( [[2,4,8,16],[0,0,0,0],[0,0,0,0],[16,8,4,2]] );
-        actualString = grid.toString();
+        gridData.setData([
+            [2,4,8,16],
+            [0,0,0,0],
+            [0,0,0,0],
+            [16,8,4,2]
+        ]);
+        actualString = gridData.toString();
         expectedString = "[[2,4,8,16],[0,0,0,0],[0,0,0,0],[16,8,4,2]]";
         this.assertEquals(expectedString, actualString);
     }
@@ -23,7 +34,7 @@ class GridDataTest extends Test {
     // Test for gridData.equals()
     equals() {
         // Test 1
-        var grid = new GridData();
+        var gridData = new GridData();
         var expectedGrid = new GridData();
         expectedGrid.setData([
             [0, 0, 0, 0],
@@ -31,25 +42,35 @@ class GridDataTest extends Test {
             [0, 0, 0, 0],
             [0, 0, 0, 0]
         ]);
-        this.assertTrue(expectedGrid.equals(grid));
+        this.assertTrue(expectedGrid.equals(gridData));
 
         // Test 2
-        grid.setData( [[2,4,8,16],[0,0,0,0],[0,0,0,0],[16,8,4,2]] );
-        expectedGrid.setData( [[2,4,8,16],[0,0,0,0],[0,0,0,0],[16,8,4,2]] );
-        this.assertTrue(expectedGrid.equals(grid));
+        gridData.setData([
+            [2,4,8,16],
+            [0,0,0,0],
+            [0,0,0,0],
+            [16,8,4,2]
+        ]);
+        expectedGrid.setData([
+            [2,4,8,16],
+            [0,0,0,0],
+            [0,0,0,0],
+            [16,8,4,2]
+        ]);
+        this.assertTrue(expectedGrid.equals(gridData));
     }
 
     // Test for gridData.copy()
     copy() {
         // Test 1
-        var grid = new GridData();
-        var expectedGrid = grid.copy();
-        this.assertTrue(grid.equals(expectedGrid));
+        var gridData = new GridData();
+        var copyGrid = gridData.copy();
+        this.assertTrue(gridData.equals(copyGrid));
 
         // Test 2
-        grid.setData( [[2,4,8,16],[0,0,0,0],[0,0,0,0],[16,8,4,2]] );
-        expectedGrid = grid.copy();
-        this.assertTrue(grid.equals(expectedGrid));
+        gridData.setData( [[2,4,8,16],[0,0,0,0],[0,0,0,0],[16,8,4,2]] );
+        copyGrid = gridData.copy();
+        this.assertTrue(gridData.equals(copyGrid));
     }
 }
 
