@@ -14,10 +14,10 @@ class GridData {
         this.data = data;
     }
 
-    // Mutators
+    // setData: sets this.data to newData
     setData(newData) { this.data = newData; }
 
-    // Accessors
+    // getData: returns this.data
     getData() { return this.data; }
 
     // toString: returns string version of this.data (in array format)
@@ -46,22 +46,6 @@ class GridData {
         var copy = new GridData();
         copy.setData(this.getData())
         return copy;
-    }
-
-    // renderGrid: returns this.data in a HTML table format
-    renderGrid() {
-        var res = "<div class='grid'>\n";
-        for (let row = 0; row < this.data.length; row++) {
-            res += "<div class='row'>\n";
-            for (let col = 0; col < this.data[row].length; col++) {
-                res += "<div>" + this.data[row][col].toString() + "</div>\n";
-            }
-            // res = res.substring(0, res.length-1);
-            res += "</div>\n";
-        }
-        // res = res.substring(0, res.length-1);
-        res += "</div>\n";
-        return res;
     }
 
 }
