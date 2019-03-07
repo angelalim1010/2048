@@ -2,8 +2,10 @@ class Game {
     constructor() {
         this.gridData = new GridData();
         this.gridDisplay = document.getElementById('grid-container');
-        const move = new Move();
-        const inputHandler = new InputHandler(move.setDirection);
+        this.move = new Move();
+        console.log(this.move)
+        this.inputHandler = new InputHandler(this.move.setDirection);
+        console.log(this.inputHandler)
     }
 
     // Starts a new game from the beginning

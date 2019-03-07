@@ -1,16 +1,23 @@
 // Represents a move of the game
 class Move {
 
-    constructor(direction) {
+    constructor() {
         // direction - string; initializes with empty string by default
-        if (direction === undefined) { direction = ""; }
+        //if (direction === undefined) { direction = ""; }
         // valid directions: "UP", "DOWN", "LEFT", "RIGHT"
-        this.direction = direction;
+        this.direction = new Direction("UP", "ArrowUp");
+        console.log(this.direction)
     }
 
     // Mutators
     setDirection(newDirection) {
-        this.direction = newDirection;
+        console.log(this.direction)
+        for(var i = 0; i < this.direction.getAll().length; i++){
+            // if (keyCode == this.direction.getAll()){
+            //     this.callback(direction);
+            // }
+            console.log(this.direction.getAll())
+        }
         console.log("Direction is set to " + this.direction);
     }
 
