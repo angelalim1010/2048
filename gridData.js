@@ -43,14 +43,9 @@ class GridData {
 
     // copy: returns a copy of this.data (4x4 2d array)
     copy() {
-      var copy = [];
-      for(var row = 0; row < this.data.length; row++){
-          copy.push([]);
-          for(var col = 0; col < this.data[row].length; col++){
-              copy[row].push(this.data[row][col]);
-          }
-      }
-      return copy;
+        var copy = new GridData();
+        copy.setData(this.getData());
+        return copy;
     }
 
 }

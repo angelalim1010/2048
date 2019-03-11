@@ -1,24 +1,21 @@
-// Represents the computer of the next board
-class NextBoardComputer{
-    constructor(move, board){
+// Computes the next grid based on old data
+class NextGridComputer{
+    constructor(move, grid){
         this.move = move;
-        this.board = board;
+        this.grid = grid;
     }
 
     /**
-     * Returns the next board after a move.
-     * @return {GridData} nextBoard - the next board.
+     * Returns the next grid after a move.
+     * @return {GridData} nextGrid - the next grid.
      */
-    getNextBoard(){
-        var nextBoard = new GridData();
-        var newBoard = this.board.copy();
-        if(this.move.getDirection() == "UP") this._shiftUp(newBoard);
-        else if(this.move.getDirection() == "DOWN") this._shiftDown(newBoard);
-        else if(this.move.getDirection() == "LEFT") this._shiftLeft(newBoard);
-        else if(this.move.getDirection() == "RIGHT") this._shiftRight(newBoard);
-        this._getNewNumber(newBoard);
-        nextBoard.setData(newBoard);
-        return nextBoard;
+    getNextGrid(){
+        var nextGrid = this.grid.copy();
+        if(this.move.getDirection() == "UP") this._shiftUp(nextGrid.getData());
+        else if(this.move.getDirection() == "DOWN") this._shiftDown(nextGrid.getData());
+        else if(this.move.getDirection() == "LEFT") this._shiftLeft(nextGrid.getData());
+        else if(this.move.getDirection() == "RIGHT") this._shiftRight(nextGrid.getData());
+        return nextGrid;
     }
 
     // Spawns a new number at a random place on board
