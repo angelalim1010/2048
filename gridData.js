@@ -15,7 +15,13 @@ class GridData {
     }
 
     // setData: sets this.data to newData
-    setData(newData) { this.data = newData; }
+    setData(newData) {
+        for (let row = 0; row < newData.length; row++) {
+            for ( let col = 0; col < newData[row].length; col++) {
+                this.data[row][col] = newData[row][col];
+            }
+        }
+    }
 
     // getData: returns this.data
     getData() { return this.data; }
@@ -44,7 +50,7 @@ class GridData {
     // copy: returns a copy of this.data (4x4 2d array)
     copy() {
         var copy = new GridData();
-        copy.setData(this.getData());
+        copy.setData(this.data);
         return copy;
     }
 

@@ -17,7 +17,7 @@ class NextGridComputerTest extends Test{
 
         // Test case UP
         var nextGridComputer = new NextGridComputer(new Move("UP"), grid);
-        const gridUp = nextGridComputer.getNextGrid();
+        var gridUp = nextGridComputer.getNextGrid();
         var expectedGrid = [
             [2, 8, 4, 4],
             [8, 0, 2, 0],
@@ -33,16 +33,13 @@ class NextGridComputerTest extends Test{
 
         // Test case DOWN
         nextGridComputer = new NextGridComputer(new Move("DOWN"), grid);
-        const gridDown = nextGridComputer.getNextGrid();
+        var gridDown = nextGridComputer.getNextGrid();
         expectedGrid = [
             [0, 0, 0, 0],
             [0, 0, 0, 0],
             [2, 0, 2, 0],
             [8, 8, 4, 4]
         ]
-        for(var r = 0; r < expectedGrid.length; r++){
-          console.log(gridDown.getData()[r]);
-        }
         for(var r = 0; r < expectedGrid.length; r++){
             for(var c = 0; c < expectedGrid[r].length; c++){
               if(expectedGrid[r][c] != 0)
@@ -52,7 +49,7 @@ class NextGridComputerTest extends Test{
 
         // Test case LEFT
         nextGridComputer = new NextGridComputer(new Move("LEFT"), grid);
-        const gridLeft = nextGridComputer.getNextGrid();
+        var gridLeft = nextGridComputer.getNextGrid();
         expectedGrid = [
             [4, 2, 0, 0],
             [4, 4, 0, 0],
@@ -68,7 +65,7 @@ class NextGridComputerTest extends Test{
 
         // Test case RIGHT
         nextGridComputer = new NextGridComputer(new Move("RIGHT"), grid);
-        const gridRight = nextGridComputer.getNextGrid();
+        var gridRight = nextGridComputer.getNextGrid();
         expectedGrid = [
             [0, 0, 2, 4],
             [0, 0, 4, 4],
