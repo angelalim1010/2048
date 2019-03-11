@@ -26,6 +26,7 @@ class NextBoardComputerTest extends Test{
         ]
         for(var r = 0; r < expectedBoard.length; r++){
             for(var c = 0; c < expectedBoard[r].length; c++){
+              if(expectedBoard[r][c] != 0)
                 this.assertEquals(expectedBoard[r][c], boardUp.getData()[r][c]);
             }
         }
@@ -41,6 +42,7 @@ class NextBoardComputerTest extends Test{
         ]
         for(var r = 0; r < expectedBoard.length; r++){
             for(var c = 0; c < expectedBoard[r].length; c++){
+              if(expectedBoard[r][c] != 0)
                 this.assertEquals(expectedBoard[r][c], boardDown.getData()[r][c]);
             }
         }
@@ -56,6 +58,7 @@ class NextBoardComputerTest extends Test{
         ]
         for(var r = 0; r < expectedBoard.length; r++){
             for(var c = 0; c < expectedBoard[r].length; c++){
+              if(expectedBoard[r][c] != 0)
                 this.assertEquals(expectedBoard[r][c], boardLeft.getData()[r][c]);
             }
         }
@@ -71,6 +74,7 @@ class NextBoardComputerTest extends Test{
         ]
         for(var r = 0; r < expectedBoard.length; r++){
             for(var c = 0; c < expectedBoard[r].length; c++){
+              if(expectedBoard[r][c] != 0)
                 this.assertEquals(expectedBoard[r][c], boardRight.getData()[r][c]);
             }
         }
