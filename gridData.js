@@ -23,8 +23,32 @@ class GridData {
         }
     }
 
+    // setRow: sets a row of this.data to newRow
+    setRow(row, newRow) { this.data[row] = newRow; }
+
+    // setColumn: sets a column of this.data to newColumn
+    setRow(col, newColumn) {
+      for(let row = 0; row < this.data.length; row++){
+        this.data[row] = newColumn[row];
+      }
+    }
+
     // getData: returns this.data
     getData() { return this.data; }
+
+    // getRow: returns a row of this.setData
+    getRow(row) {
+        return this.data[row];
+    }
+
+    // getColumn: returns a column of this.setData
+    getColumn(col) {
+        let newCol = [];
+        for(let row = 0; row < this.data.length; row++){
+          newCol.push(this.data[row][col]);
+        }
+        return newCol;
+    }
 
     // toString: returns string version of this.data (in array format)
     toString() {
