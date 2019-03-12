@@ -8,9 +8,7 @@ class Segment {
         this.segment = fourNumbers;
     }
 
-    setData(newData) {
-        this.segment = newData;
-    }
+    getData() { return this.segment; }
 
     // toString: returns string version of this.data (in array format)
     toString() {
@@ -29,22 +27,17 @@ class Segment {
 
     // returns a segment shifted to the left
     compactLeft() {
-        let newSegment = new Segment();
         let newData = [];
         let nextNumber = undefined;
+
         for(let col = 0; col < this.segment.length; col++){
-          if(this.segment[col] != 0){
-            nextNumber = col + 1;
-            while(nextNumber < this.segment.length){
-                if(this.segment[col] == this.segment[nextNumber]){
-                    newData.push(2 * this.segment[col]);
-                    col = nextNumber;
-                    break;
-                }else if(this.segment[nextNumber] != 0){
-                    newData.push(this.segment[col]);
-                    break;
-                }else nextNumber++;
-            }
+          if(this.segment[col] != 0) newData.push(this.segment[col]);
+        }
+
+        for(let col = 0; col < newData.length - 1; col++){
+          if(newData[col] == newData[col + 1]){
+            newData[col] = 2 * newData[col];
+            newData.splice(col + 1, 1);
           }
         }
 
@@ -53,13 +46,15 @@ class Segment {
             newData.push(0);
           }
         }
-        newSegment.setData(newData);
+
+        let newSegment = new Segment(newData);
         return newSegment;
     }
 
     // returns a segment REVERSED
     reverse() {
-
+        let newSegment = new Segment(this.segment.reverse());
+        return newSegment;
     }
 
 }

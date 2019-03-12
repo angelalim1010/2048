@@ -11,10 +11,10 @@ class NextGridComputer{
      */
     getNextGrid(){
         var nextGrid = this.grid.copy();
-        if(this.move.getDirection() == "UP") this._shiftUp(nextGrid.getData());
-        else if(this.move.getDirection() == "DOWN") this._shiftDown(nextGrid.getData());
-        else if(this.move.getDirection() == "LEFT") this._shiftLeft(nextGrid.getData());
-        else if(this.move.getDirection() == "RIGHT") this._shiftRight(nextGrid.getData());
+        if(this.move.getDirection() == "UP") this._shiftUp(nextGrid);
+        else if(this.move.getDirection() == "DOWN") this._shiftDown(nextGrid);
+        else if(this.move.getDirection() == "LEFT") this._shiftLeft(nextGrid);
+        else if(this.move.getDirection() == "RIGHT") this._shiftRight(nextGrid);
         return nextGrid;
     }
 
@@ -34,133 +34,34 @@ class NextGridComputer{
     // }
 
     // Shifts board data up
-    _shiftUp(board){
-        var i = undefined;
-        for(var col = 0; col < board[0].length; col++){
-            for(var row = 0; row < board.length - 1; row++){
-                if(board[row][col] != 0){
-                    i = row + 1;
-                    while(i < board.length){
-                        if(board[row][col] == board[i][col]){
-                            board[row][col] = 2 * board[row][col];
-                            board[i][col] = 0;
-                            break;
-                        }else if(board[i][col] != 0) break;
-                        else i++;
-                    }
-                    i = undefined;
-                }
-            }
-
-            for(var row = 1; row < board.length; row++){
-                if(board[row][col] != 0 && board[row-1][col] == 0){
-                    i = row;
-                    while(i > 0 && board[i-1][col] == 0){
-                        board[i-1][col] = board[i][col];
-                        board[i][col] = 0;
-                        i--;
-                    }
-                    i = undefined;
-                }
-            }
+    _shiftUp(grid){
+        for(let col = 0; col < grid.getData()[0].length; col++){
+          let newColumn = new Segment(grid.getColumn(col));
+          grid.setColumn(col, newColumn.compactLeft().getData());
         }
     }
 
     // Shifts board data down
-    _shiftDown(board){
-        var i = undefined;
-        for(var col = 0; col < board[0].length; col++){
-            for(var row = board.length - 1; row > 0; row--){
-                if(board[row][col] != 0){
-                    i = row - 1;
-                    while(i >= 0){
-                        if(board[row][col] == board[i][col]){
-                            board[row][col] = 2 * board[row][col];
-                            board[i][col] = 0;
-                            break;
-                        }else if(board[i][col] != 0) break;
-                        else i--;
-                    }
-                    i = undefined;
-                }
-            }
-
-            for(var row = board.length - 2; row >= 0; row--){
-                if(board[row][col] != 0 && board[row+1][col] == 0){
-                    i = row;
-                    while(i < board.length - 1 && board[i+1][col] == 0){
-                        board[i+1][col] = board[i][col];
-                        board[i][col] = 0;
-                        i++;
-                    }
-                    i = undefined;
-                }
-            }
-        }
+    _shiftDown(grid){
+      for(let col = 0; col < grid.getData()[0].length; col++){
+        let newColumn = new Segment(grid.getColumn(col)).reverse();
+        grid.setColumn(col, newColumn.compactLeft().reverse().getData());
+      }
     }
 
     // Shifts board data left
-    _shiftLeft(board){
-        var i = undefined;
-        for(var row = 0; row < board.length; row++){
-            for(var col = 0; col < board[row].length - 1; col++){
-                if(board[row][col] != 0){
-                    i = col + 1;
-                    while(i < board[row].length){
-                        if(board[row][col] == board[row][i]){
-                            board[row][col] = 2 * board[row][col];
-                            board[row][i] = 0;
-                            break;
-                        }else if(board[i][col] != 0) break;
-                        else i++;
-                    }
-                    i = undefined;
-                }
-            }
-            for(var col = 1; col < board[row].length; col++){
-                if(board[row][col] != 0 && board[row][col-1] == 0){
-                    i = col;
-                    while(col >= 0 && board[row][i-1] == 0){
-                        board[row][i-1] = board[row][i];
-                        board[row][i] = 0;
-                        i--;
-                    }
-                    i = undefined;
-                }
-            }
-        }
+    _shiftLeft(grid){
+      for(let row = 0; row < grid.getData().length; row++){
+        let newRow = new Segment(grid.getRow(row));
+        grid.setRow(row, newRow.compactLeft().getData());
+      }
     }
 
     // Handles shifting board right
-    _shiftRight(board){
-        var i = undefined;
-        for(var row = 0; row < board.length; row++){
-            for(var col = board[row].length - 1; col > 0; col--){
-                if(board[row][col] != 0){
-                    i = col - 1;
-                    while(i >= 0){
-                        if(board[row][col] == board[row][i]){
-                            board[row][col] = 2 * board[row][col];
-                            board[row][i] = 0;
-                            break;
-                        }else if(board[row][i] != 0) break;
-                        else i--;
-                    }
-                    i = undefined;
-                }
-            }
-
-            for(var col = board[row].length - 2; col >= 0; col--){
-                if(board[row][col] != 0 && board[row][col+1] == 0){
-                    i = col;
-                    while(col < board[row].length && board[row][i+1] == 0){
-                        board[row][i+1] = board[row][i];
-                        board[row][i] = 0;
-                        i++;
-                    }
-                    i = undefined;
-                }
-            }
-        }
+    _shiftRight(grid){
+      for(let row = 0; row < grid.getData().length; row++){
+        let newRow = new Segment(grid.getRow(row)).reverse();
+        grid.setRow(row, newRow.compactLeft().reverse().getData());
+      }
     }
 }

@@ -27,9 +27,9 @@ class GridData {
     setRow(row, newRow) { this.data[row] = newRow; }
 
     // setColumn: sets a column of this.data to newColumn
-    setRow(col, newColumn) {
+    setColumn(col, newColumn) {
       for(let row = 0; row < this.data.length; row++){
-        this.data[row] = newColumn[row];
+        this.data[row][col] = newColumn[row];
       }
     }
 

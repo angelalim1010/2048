@@ -79,10 +79,35 @@ class SegmentTest extends Test{
 
       let firstRow = new Segment(grid.getRow(0));
       let expectedFirstRow = new Segment([4, 2, 0, 0]);
+      let secondRow = new Segment(grid.getRow(1));
+      let expectedSecondRow = new Segment([4, 4, 0, 0]);
+      let thirdRow = new Segment(grid.getRow(2));
+      let expectedThirdRow = new Segment([8, 4, 2, 0]);
+      let fourthRow = new Segment(grid.getRow(3));
+      let expectedFourthRow = new Segment([0, 0, 0, 0]);
 
-      console.log(firstRow.compactLeft().toString());
-      console.log(expectedFirstRow.toString());
       this.assertTrue(expectedFirstRow.equals(firstRow.compactLeft()));
+      this.assertTrue(expectedSecondRow.equals(secondRow.compactLeft()));
+      this.assertTrue(expectedThirdRow.equals(thirdRow.compactLeft()));
+      this.assertTrue(expectedFourthRow.equals(fourthRow.compactLeft()));
+    }
+
+    reverse(){
+      let grid = new GridData();
+      grid.setData([
+          [2, 0, 2, 2],
+          [0, 4, 2, 2],
+          [8, 4, 2, 0],
+          [0, 0, 0, 0]
+      ]);
+
+      let firstRow = new Segment(grid.getRow(0));
+      let expectedFirstRow = new Segment([2, 2, 0, 2]);
+      this.assertTrue(expectedFirstRow.equals(firstRow.reverse()));
+
+      let thirdRow = new Segment(grid.getRow(2));
+      let expectedThirdRow = new Segment([0, 2, 4, 8]);
+      this.assertTrue(expectedThirdRow.equals(thirdRow.reverse()));
     }
 }
 
