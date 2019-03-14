@@ -1,10 +1,11 @@
 class Direction{
-    constructor(direction, key) {
+    constructor(direction, keyCode) {
         if (direction === undefined) { direction = ""; }
         this.direction = direction;
-        if (key === undefined) { key = ""; }
-        this.key = key;
+        if (keyCode === undefined) { keyCode = ""; }
+        this.keyCode = keyCode;
     }
+
     static UP = new Direction("UP", "ArrowUp");
     static DOWN = new Direction("DOWN", "ArrowDown")
     static LEFT = new Direction("LEFT", "ArrowLeft")
@@ -12,4 +13,17 @@ class Direction{
     getAll(){
         return [Direction.UP, Direction.DOWN, Direction.LEFT, Direction.RIGHT]
     }
+    getAssociatedKeycode(){
+        return this.keyCode
+    }
+    getAssociatedDirection(){
+        return this.direction;
+    }
+    // getArrayIndex(){
+    //     for (int i = 0; i < this.getAll().length; i++){
+    //         console.log(i.getAssociatedKeycode());
+    //         console.log(i.getAssociatedDirection());
+    //         console.log(this.getAll(i));
+    //     }
+    //}
 }
