@@ -23,7 +23,6 @@ class Direction{
     //     for (int i = 0; i < this.getAll().length; i++){
     //         console.log(i.getAssociatedKeycode());
     //         console.log(i.getAssociatedDirection());
-    //         console.log(this.getAll(i));
     //     }
     //}
 }

@@ -12,7 +12,7 @@ class Game {
         // render 2048 Grid as a table inside the 'grid-container' element
         this.gridDisplayHTML.innerHTML = this.gridDataDisplay.toString();
         this.inputHandler;
-        console.log(this.direction.getAll())
+        console.log(this.direction.getAll().length)
 
     }
 

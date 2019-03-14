@@ -4,7 +4,7 @@ class InputHandler {
     //callback is a function that takes in a string -> void
     constructor(callback) {
       this.callback = callback;
-      //this.direction = new Direction();
+      const direction = new Direction();
       const keyDown = this._keyDown.bind(this);
       window.addEventListener('keydown', keyDown);
     }
@@ -14,24 +14,11 @@ class InputHandler {
      const keyCode = event.key;
      console.log(this.callback)
     // this.callback(keyCode);
-      // switch(keyCode){
-      //   case "ArrowUp":
-      //     this.callback(new Move("UP"));
-      //     console.log("the up arrow was pressed");
-      //     break;
-      //   case "ArrowDown":
-      //     this.callback("DOWN");
-      //     console.log("the down arrow was pressed");
-      //     break;
-      //   case "ArrowRight":
-      //     this.callback("RIGHT");
-      //     console.log("the right arrow was pressed");
-      //   break;
-      //   case "ArrowLeft":
-      //     this.callback("LEFT");
-      //     console.log("the left arrow was pressed");
-      //   break;
-      // };
+      // for(int i = 0; i < direction.getAll().length; i++ ){
+      //     if (keycode == i.getAssociatedKeycode){
+                    // this.callback(i.getAssociatedDirection)
+                }
+      // }
 
 
     }
