@@ -14,11 +14,41 @@ class GridData {
         this.data = data;
     }
 
-    // Mutators
-    setData(newData) { this.data = newData; }
+    // setData: sets this.data to newData
+    setData(newData) {
+        for (let row = 0; row < newData.length; row++) {
+            for ( let col = 0; col < newData[row].length; col++) {
+                this.data[row][col] = newData[row][col];
+            }
+        }
+    }
 
-    // Accessors
+    // setRow: sets a row of this.data to newRow
+    setRow(row, newRow) { this.data[row] = newRow; }
+
+    // setColumn: sets a column of this.data to newColumn
+    setColumn(col, newColumn) {
+      for(let row = 0; row < this.data.length; row++){
+        this.data[row][col] = newColumn[row];
+      }
+    }
+
+    // getData: returns this.data
     getData() { return this.data; }
+
+    // getRow: returns a row of this.setData
+    getRow(row) {
+        return this.data[row];
+    }
+
+    // getColumn: returns a column of this.setData
+    getColumn(col) {
+        let newCol = [];
+        for(let row = 0; row < this.data.length; row++){
+          newCol.push(this.data[row][col]);
+        }
+        return newCol;
+    }
 
     // toString: returns string version of this.data (in array format)
     toString() {
@@ -40,28 +70,12 @@ class GridData {
     equals(otherGridData) {
         return this.toString() == otherGridData.toString();
     }
-    
+
     // copy: returns a copy of this.data (4x4 2d array)
     copy() {
         var copy = new GridData();
-        copy.setData(this.getData())
+        copy.setData(this.data);
         return copy;
-    }
-
-    // renderGrid: returns this.data in a HTML table format
-    renderGrid() {
-        var res = "<div class='grid'>\n";
-        for (let row = 0; row < this.data.length; row++) {
-            res += "<div class='row'>\n";
-            for (let col = 0; col < this.data[row].length; col++) {
-                res += "<div>" + this.data[row][col].toString() + "</div>\n";
-            }
-            // res = res.substring(0, res.length-1);
-            res += "</div>\n";
-        }
-        // res = res.substring(0, res.length-1);
-        res += "</div>\n";
-        return res;
     }
 
 }
