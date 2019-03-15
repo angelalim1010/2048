@@ -1,7 +1,7 @@
 //class that listens to keyboard inputs
 class InputHandler {
   //parameter is the callback function to take in string
-  //callback is a function that takes in a string -> void
+  //callback is a function that takes in a direction -> void
   constructor(callback) {
     this.callback = callback;
     console.log(Direction.getAll());
