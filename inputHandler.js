@@ -17,7 +17,7 @@ class InputHandler {
       // for(int i = 0; i < direction.getAll().length; i++ ){
       //     if (keycode == i.getAssociatedKeycode){
                     // this.callback(i.getAssociatedDirection)
-                }
+                // }
       // }
 
 
