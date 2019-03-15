@@ -4,10 +4,10 @@ class Direction{
         this.keyCode = keyCode;
     }
 
-    static Direction UP = new Direction("UP", "ArrowUp");
-    static Direction DOWN = new Direction("DOWN", "ArrowDown");
-    static Direction LEFT = new Direction("LEFT", "ArrowLeft");
-    static Direction RIGHT = new Direction("RIGHT", "ArrowRight");
+    static UP = new Direction("UP", "ArrowUp");
+    static DOWN = new Direction("DOWN", "ArrowDown");
+    static LEFT = new Direction("LEFT", "ArrowLeft");
+    static RIGHT = new Direction("RIGHT", "ArrowRight");
 
     static getAll() {
         return [Direction.UP, Direction.DOWN, Direction.LEFT, Direction.RIGHT]
