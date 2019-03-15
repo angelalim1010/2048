@@ -11,10 +11,27 @@ class NextGridComputer{
      */
     getNextGrid(){
         var nextGrid = this.grid.copy();
-        if(this.move.getDirection() == "UP") this._shiftUp(nextGrid);
-        else if(this.move.getDirection() == "DOWN") this._shiftDown(nextGrid);
-        else if(this.move.getDirection() == "LEFT") this._shiftLeft(nextGrid);
-        else if(this.move.getDirection() == "RIGHT") this._shiftRight(nextGrid);
+        if(this.move.getDirection() == "UP"){
+          for(let col = 0; col < nextGrid.getData()[0].length; col++){
+            let newColumn = new Segment(nextGrid.getColumn(col));
+            nextGrid.setColumn(col, newColumn.compactLeft().getData());
+          }
+        }else if(this.move.getDirection() == "DOWN"){
+          for(let col = 0; col < nextGrid.getData()[0].length; col++){
+            let newColumn = new Segment(nextGrid.getColumn(col)).reverse();
+            nextGrid.setColumn(col, newColumn.compactLeft().reverse().getData());
+          }
+        }else if(this.move.getDirection() == "LEFT"){
+          for(let row = 0; row < nextGrid.getData().length; row++){
+            let newRow = new Segment(nextGrid.getRow(row));
+            nextGrid.setRow(row, newRow.compactLeft().getData());
+          }
+        }else if(this.move.getDirection() == "RIGHT"){
+          for(let row = 0; row < nextGrid.getData().length; row++){
+            let newRow = new Segment(nextGrid.getRow(row)).reverse();
+            nextGrid.setRow(row, newRow.compactLeft().reverse().getData());
+          }
+        }
         return nextGrid;
     }
 
@@ -32,36 +49,4 @@ class NextGridComputer{
     //
     //   board[randRow][randCol] = randNum;
     // }
-
-    // Shifts board data up
-    _shiftUp(grid){
-        for(let col = 0; col < grid.getData()[0].length; col++){
-          let newColumn = new Segment(grid.getColumn(col));
-          grid.setColumn(col, newColumn.compactLeft().getData());
-        }
-    }
-
-    // Shifts board data down
-    _shiftDown(grid){
-      for(let col = 0; col < grid.getData()[0].length; col++){
-        let newColumn = new Segment(grid.getColumn(col)).reverse();
-        grid.setColumn(col, newColumn.compactLeft().reverse().getData());
-      }
-    }
-
-    // Shifts board data left
-    _shiftLeft(grid){
-      for(let row = 0; row < grid.getData().length; row++){
-        let newRow = new Segment(grid.getRow(row));
-        grid.setRow(row, newRow.compactLeft().getData());
-      }
-    }
-
-    // Handles shifting board right
-    _shiftRight(grid){
-      for(let row = 0; row < grid.getData().length; row++){
-        let newRow = new Segment(grid.getRow(row)).reverse();
-        grid.setRow(row, newRow.compactLeft().reverse().getData());
-      }
-    }
 }
