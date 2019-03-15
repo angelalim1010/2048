@@ -15,7 +15,7 @@ class InputHandler {
     let allDirections = Direction.getAll();
     for (var i = 0; i < allDirections.length; i++ ) {
       let direction = allDirections[i];
-      if (this.keycode == direction.getAssociatedKeycode()) {
+      if (keyCode == direction.getAssociatedKeycode()) {
         this.callback(direction);
       }
     }
