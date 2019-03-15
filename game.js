@@ -13,7 +13,6 @@ class Game {
         this.gridDisplayHTML.innerHTML = this.gridDataDisplay.toString();
         this.inputHandler;
         console.log(this.direction.getAll().length)
-
     }
 
 

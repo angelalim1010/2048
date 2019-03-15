@@ -17,7 +17,7 @@ class GridData {
     // setData: sets this.data to newData
     setData(newData) {
         for (let row = 0; row < newData.length; row++) {
-            for ( let col = 0; col < newData[row].length; col++) {
+            for (let col = 0; col < newData[row].length; col++) {
                 this.data[row][col] = newData[row][col];
             }
         }
@@ -28,9 +28,9 @@ class GridData {
 
     // setColumn: sets a column of this.data to newColumn
     setColumn(col, newColumn) {
-      for(let row = 0; row < this.data.length; row++){
-        this.data[row][col] = newColumn[row];
-      }
+        for (let row = 0; row < this.data.length; row++) {
+            this.data[row][col] = newColumn[row];
+        }
     }
 
     // getData: returns this.data
@@ -44,8 +44,8 @@ class GridData {
     // getColumn: returns a column of this.setData
     getColumn(col) {
         let newCol = [];
-        for(let row = 0; row < this.data.length; row++){
-          newCol.push(this.data[row][col]);
+        for (let row = 0; row < this.data.length; row++) {
+            newCol.push(this.data[row][col]);
         }
         return newCol;
     }
@@ -58,10 +58,10 @@ class GridData {
             for (let col = 0; col < this.data[row].length; col++) {
                 res += this.data[row][col].toString() + ",";
             }
-            res = res.substring(0, res.length-1);
+            res = res.substring(0, res.length - 1);
             res += "],";
         }
-        res = res.substring(0, res.length-1);
+        res = res.substring(0, res.length - 1);
         res += "]";
         return res;
     }
