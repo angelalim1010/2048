@@ -4,7 +4,7 @@ class InputHandler {
     //callback is a function that takes in a string -> void
     constructor(callback) {
       this.callback = callback;
-      this.direction = new Direction();
+     // this.direction = new Direction();
       console.log(this.direction.getAll());
       const keyDown = this._keyDown.bind(this);
       window.addEventListener('keydown', keyDown);
@@ -12,7 +12,7 @@ class InputHandler {
 
     _keyDown(event){
         const keyCode = event.key;
-        for(var i = 0; i < this.direction.getAll().length; i++ ){
+        for(var i = 0; i < Direction.getAll().length; i++ ){
            if (this.keycode == i.getAssociatedKeycode){
                      this.callback(i.getAssociatedDirection)
                 }

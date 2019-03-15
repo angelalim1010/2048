@@ -1,8 +1,8 @@
 class Direction{
     constructor(direction, keyCode) {
-        if (direction === undefined) { direction = ""; }
+        //if (direction === undefined) { direction = ""; }
         this.direction = direction;
-        if (keyCode === undefined) { keyCode = ""; }
+        //if (keyCode === undefined) { keyCode = ""; }
         this.keyCode = keyCode;
     }
 
@@ -10,7 +10,7 @@ class Direction{
     static DOWN = new Direction("DOWN", "ArrowDown");
     static LEFT = new Direction("LEFT", "ArrowLeft");
     static RIGHT = new Direction("RIGHT", "ArrowRight");
-    getAll(){
+    static getAll(){
         return [Direction.UP, Direction.DOWN, Direction.LEFT, Direction.RIGHT]
     }
     getAssociatedKeycode(){
