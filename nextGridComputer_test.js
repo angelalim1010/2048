@@ -16,9 +16,10 @@ class NextGridComputerTest extends Test{
         ]);
 
         let expectedGrid = new GridData();
+        let directions = Direction.getAll();
 
         // Test case UP
-        var nextGridComputer = new NextGridComputer(new Move("UP"), grid);
+        var nextGridComputer = new NextGridComputer(directions[0], grid);
         const gridUp = nextGridComputer.getNextGrid();
         expectedGrid.setData([
             [2, 8, 4, 4],
@@ -29,7 +30,7 @@ class NextGridComputerTest extends Test{
         this.assertTrue(gridUp.equals(expectedGrid));
 
         // Test case DOWN
-        nextGridComputer = new NextGridComputer(new Move("DOWN"), grid);
+        nextGridComputer = new NextGridComputer(directions[1], grid);
         const gridDown = nextGridComputer.getNextGrid();
         expectedGrid.setData([
             [0, 0, 0, 0],
@@ -40,7 +41,7 @@ class NextGridComputerTest extends Test{
         this.assertTrue(gridDown.equals(expectedGrid));
 
         // Test case LEFT
-        nextGridComputer = new NextGridComputer(new Move("LEFT"), grid);
+        nextGridComputer = new NextGridComputer(directions[2], grid);
         const gridLeft = nextGridComputer.getNextGrid();
         expectedGrid.setData([
             [4, 2, 0, 0],
@@ -51,7 +52,7 @@ class NextGridComputerTest extends Test{
         this.assertTrue(gridLeft.equals(expectedGrid));
 
         // Test case RIGHT
-        nextGridComputer = new NextGridComputer(new Move("RIGHT"), grid);
+        nextGridComputer = new NextGridComputer(directions[3], grid);
         const gridRight = nextGridComputer.getNextGrid();
         expectedGrid.setData([
             [0, 0, 2, 4],

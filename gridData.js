@@ -17,9 +17,7 @@ class GridData {
     // setData: sets this.data to newData
     setData(newData) {
         for (let row = 0; row < newData.length; row++) {
-            for (let col = 0; col < newData[row].length; col++) {
-                this.data[row][col] = newData[row][col];
-            }
+            this.data[row] = newData[row].slice();
         }
     }
 

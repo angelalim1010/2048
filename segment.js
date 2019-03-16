@@ -1,14 +1,11 @@
-// Represents a segment of four numbers
+// Represents an array of 4 integers
 class Segment {
 
-    constructor(segment) {
-
-        // segment - an array of 4 integers; prepopulate with 0's by default
-        if(segment === undefined) {
-          segment = [0, 0, 0, 0];
-        }
-        this.segment = segment;
+    constructor() {
+        this.segment = [0, 0, 0, 0];
     }
+
+    setSegment(newSegment) { this.segment = newSegment; }
 
     getData() { return this.segment; }
 
@@ -18,9 +15,9 @@ class Segment {
         return segmentString;
     }
 
-    // equals: returns whether toString() of current GridData and comparable GridData are equal
-    equals(otherGridData) {
-        return this.toString() == otherGridData.toString();
+    // equals: returns whether toString() of current Segment and comparable Segment are equal
+    equals(otherSegment) {
+        return this.toString() == otherSegment.toString();
     }
 
     // returns a segment shifted to the left
@@ -44,13 +41,15 @@ class Segment {
           newData = newData.concat(zeroArray);
         }
 
-        let newSegment = new Segment(newData);
+        let newSegment = new Segment();
+        newSegment.setSegment(newData);
         return newSegment;
     }
 
     // returns a segment REVERSED
     reverse() {
-        let newSegment = new Segment(this.segment.reverse());
+        let newSegment = new Segment();
+        newSegment.setSegment(this.segment.reverse());
         return newSegment;
     }
 
