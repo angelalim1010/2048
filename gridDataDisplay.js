@@ -5,14 +5,15 @@ class GridDataDisplay {
         this.gridData = gridData;
     }
 
-    // toString: returns this.gridData in a HTML table format
-    toString() {
-        let data = this.gridData.getData();
+    // toHTML: returns this.gridData in a HTML table format
+    toHTML() {
+        let data = this.gridData;
+        let size = data.getSize();
         var res = "<div class='grid'>";
-        for (let row = 0; row < data.length; row++) {
+        for (let row = 0; row < size; row++) {
             res += "<div class='row'>";
-            for (let col = 0; col < data[row].length; col++) {
-                res += "<div>" + data[row][col].toString() + "</div>";
+            for (let col = 0; col < size; col++) {
+                res += "<div>" + data.getCell(row, col).toString() + "</div>";
             }
             res += "</div>";
         }

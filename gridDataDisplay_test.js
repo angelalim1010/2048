@@ -5,12 +5,12 @@ class GridDataDisplayTest extends Test {
         super();
     }
 
-    // Test for gridDataDisplay.toString()
-    toString() {
+    // Test for gridDataDisplay.toHTML()
+    toHTML() {
         // Test 1
         var gridData = new GridData();
         var gridDataDisplay = new GridDataDisplay(gridData);
-        var actualString = gridDataDisplay.toString();
+        var actualString = gridDataDisplay.toHTML();
         var expectedString = "<div class='grid'><div class='row'><div>0</div><div>0</div><div>0</div><div>0</div></div><div class='row'><div>0</div><div>0</div><div>0</div><div>0</div></div><div class='row'><div>0</div><div>0</div><div>0</div><div>0</div></div><div class='row'><div>0</div><div>0</div><div>0</div><div>0</div></div></div>";
         this.assertEquals(expectedString, actualString);
 
@@ -21,7 +21,7 @@ class GridDataDisplayTest extends Test {
             [0,0,0,0],
             [16,8,4,2]
         ]);
-        actualString = gridDataDisplay.toString();
+        actualString = gridDataDisplay.toHTML();
         expectedString = "<div class='grid'><div class='row'><div>2</div><div>4</div><div>8</div><div>16</div></div><div class='row'><div>0</div><div>0</div><div>0</div><div>0</div></div><div class='row'><div>0</div><div>0</div><div>0</div><div>0</div></div><div class='row'><div>16</div><div>8</div><div>4</div><div>2</div></div></div>";
         this.assertEquals(expectedString, actualString);
     }

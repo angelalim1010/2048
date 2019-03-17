@@ -13,7 +13,7 @@ class Game {
 
     // Draws the grid.
     _draw() {
-        this.gridContainer.innerHTML = this.gridDataDisplay.toString();
+        this.gridContainer.innerHTML = this.gridDataDisplay.toHTML();
     }
 
     // Called when the user wants to move in a given direction.

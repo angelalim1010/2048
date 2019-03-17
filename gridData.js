@@ -1,18 +1,18 @@
 // Represents the data of the 2048 grid
 class GridData {
 
-    constructor(data) {
-        // data - 4x4 2d array; prepopulate with 0's by default
-        if (data === undefined) {
-            data = [
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0]
-            ]
-        }
-        this.data = data;
+    // ############################## Constructor ##############################
+    constructor() {
+        // this.data - 4x4 2d array; prepopulate with 0's by default
+        this.data = [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+        ]
     }
+
+    // ############################## Set Functions ##############################
 
     // setData: sets this.data to newData
     setData(newData) {
@@ -31,15 +31,24 @@ class GridData {
         }
     }
 
-    // getData: returns this.data
-    getData() { return this.data; }
+    // setCell: sets a cell of this.data to newValue
+    setCell(cell, newValue) { this.data[row][col] = newValue; }
 
-    // getRow: returns a row of this.setData
+    
+    // ############################## Get Functions ##############################
+
+    // getSize: returns the size of the board
+    // ** Currently assuming the board will always be a n*n square **
+    getSize() {
+        return this.data.length;
+    }
+
+    // getRow: returns a row of this.data
     getRow(row) {
         return this.data[row];
     }
 
-    // getColumn: returns a column of this.setData
+    // getColumn: returns a column of this.data
     getColumn(col) {
         let newCol = [];
         for (let row = 0; row < this.data.length; row++) {
@@ -47,6 +56,14 @@ class GridData {
         }
         return newCol;
     }
+    
+    // getCell: returns the value of the cell at row, col of this.data
+    getCell(row, col) {
+        return this.data[row][col]; 
+    }
+
+
+    // ############################## Misc. Helper Functions ##############################
 
     // toString: returns string version of this.data (in array format)
     toString() {
