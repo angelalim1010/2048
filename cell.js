@@ -3,14 +3,19 @@
 // ** Note: Currently not using this class in the game, but we may want to discuss whether to integrate it or not **
 class Cell {
 
-    constructor(x, y) {
+    constructor(value, x, y) {
         this.x = x;
         this.y = y;
+        this.value = value;
     }
 
     getX() { return this.x; }
 
     getY() { return this.y; }
+
+    getValue() { return this.value; }
+
+    setValue(value) { this.value = value; }
 
     // copy: returns a copy of this cell
     copy() {
