@@ -35,7 +35,7 @@ class GridData {
     // Question - how should Cell be integrated into gridData?
     // Should this.data be a whole array of Cell objects? 
     // I remember the idea was to implement it like this.position in BallZ, but how should we do that?
-    setCell(cell, newValue) { this.data[row][col] = newValue; }
+    setCell(row, col, newValue) { this.data[row][col] = newValue; }
 
     // ############################## Get Functions ##############################
 
@@ -102,6 +102,13 @@ class GridData {
           if(this.getRow(row).includes(0)) return false;
        }
        return true;
+    }
+
+    // createInitialGrid: creates 2 populated (non-zero) values on the grid
+    createInitialGrid() {
+        // Currently just hardcoding initial cells
+        this.setCell(1,1,2);
+        this.setCell(1,2,2);
     }
 
 }
