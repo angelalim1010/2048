@@ -1,4 +1,4 @@
-
+// Computes the next cell to spawn a new number at
 class NewCellComputer {
 
    constructor(grid) {
@@ -24,6 +24,11 @@ class NewCellComputer {
          return emptyCells[randNum];
       }else
          return null;
+   }
+
+   // Returns a number to be spawned at a cell
+   getNewNumber() {
+      return Math.ceil(Math.random() * 2) * 2;
    }
 
 }

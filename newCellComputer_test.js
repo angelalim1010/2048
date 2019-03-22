@@ -48,6 +48,15 @@ class NewCellComputerTest extends Test{
          this.assertEquals(null, newCell);
       }
    }
+
+   // Test for NewCellComputer.getNewNumber().
+   getNewNumber(){
+      let grid = new GridData();
+      let newCellComputer = new NewCellComputer(grid);
+      for(let i = 0; i < 10; i++){
+         this.assertTrue([2,4].includes(newCellComputer.getNewNumber()));
+      }
+   }
 }
 
 new NewCellComputerTest().runAll();
