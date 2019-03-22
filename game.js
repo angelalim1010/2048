@@ -8,6 +8,7 @@ class Game {
 
     // Starts a new game from the beginning.
     play() {
+        this.gridData.createInitialGrid();
         this._draw();
     }
 
