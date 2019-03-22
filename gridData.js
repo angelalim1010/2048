@@ -90,5 +90,13 @@ class GridData {
         return copy;
     }
 
+    // isFull: returns true if there are no empty cells, false otherwise
+    isFull() {
+       for(let row = 0; row < this.getSize(); row++){
+          if(this.getRow(row).includes(0)) return false;
+       }
+       return true;
+    }
+
 }
 // End gridData.js
