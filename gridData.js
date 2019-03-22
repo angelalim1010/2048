@@ -31,10 +31,6 @@ class GridData {
         }
     }
 
-    // setCell: sets a cell of this.data to newValue
-    setCell(cell, newValue) { this.data[row][col] = newValue; }
-
-    
     // ############################## Get Functions ##############################
 
     // getSize: returns the size of the board
@@ -56,10 +52,11 @@ class GridData {
         }
         return newCol;
     }
-    
+
     // getCell: returns the value of the cell at row, col of this.data
     getCell(row, col) {
-        return this.data[row][col]; 
+        let cell = new Cell(this.data[row][col], row, col);
+        return cell;
     }
 
 

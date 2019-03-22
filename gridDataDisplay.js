@@ -13,7 +13,7 @@ class GridDataDisplay {
         for (let row = 0; row < size; row++) {
             res += "<div class='row'>";
             for (let col = 0; col < size; col++) {
-                res += "<div>" + data.getCell(row, col).toString() + "</div>";
+                res += "<div>" + data.getCell(row, col).getValue() + "</div>";
             }
             res += "</div>";
         }
