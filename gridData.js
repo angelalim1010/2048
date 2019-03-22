@@ -31,6 +31,12 @@ class GridData {
         }
     }
 
+    // setCell: sets a cell of this.data to newValue
+    // Question - how should Cell be integrated into gridData?
+    // Should this.data be a whole array of Cell objects? 
+    // I remember the idea was to implement it like this.position in BallZ, but how should we do that?
+    setCell(cell, newValue) { this.data[row][col] = newValue; }
+
     // ############################## Get Functions ##############################
 
     // getSize: returns the size of the board
