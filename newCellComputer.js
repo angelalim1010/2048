@@ -7,23 +7,22 @@ class NewCellComputer {
 
    // Returns a cell if there are empty cells
    getNewCell() {
-      if(!this.grid.isFull()){
-         let emptyCells = [];
+      if(this.grid.isFull()) return null;
 
-         // Get all cells that have the value zero
-         for(let row = 0; row < this.grid.getSize(); row++){
-            for(let col = 0; col < this.grid.getSize(); col++){
-               let cell = this.grid.getCell(row, col);
-               if(cell.getValue() == 0)
-                  emptyCells.push(cell);
-               }
-         }
+      let emptyCells = [];
 
-         // Generates a random number between 0 and (total number of empty cells - 1)
-         let randNum = Math.floor(Math.random() * emptyCells.length);
-         return emptyCells[randNum];
-      }else
-         return null;
+      // Get all cells that have the value zero
+      for(let row = 0; row < this.grid.getSize(); row++){
+         for(let col = 0; col < this.grid.getSize(); col++){
+            let cell = this.grid.getCell(row, col);
+            if(cell.getValue() == 0)
+               emptyCells.push(cell);
+            }
+      }
+
+      // Generates a random number between 0 and (total number of empty cells - 1)
+      let randNum = Math.floor(Math.random() * emptyCells.length);
+      return emptyCells[randNum];
    }
 
    // Returns a number to be spawned at a cell
