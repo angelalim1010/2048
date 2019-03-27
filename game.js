@@ -1,9 +1,11 @@
 class Game {
     constructor() {
         this.gridData = new GridData();
-        this.gridDataDisplay = new GridDataDisplay(this.gridData);
         this.gridContainer = document.getElementById('grid-container');
         this.inputHandler = new InputHandler(this._onMove.bind(this));
+        this.newCellComputer = new NewCellComputer(this.gridData);
+        this.nextMoveComputer = new NextMoveComputer(this.gridData);
+
     }
 
     // Starts a new game from the beginning.
@@ -14,11 +16,31 @@ class Game {
 
     // Draws the grid.
     _draw() {
-        this.gridContainer.innerHTML = this.gridDataDisplay.toHTML();
+        let gridDataDisplay = new GridDataDisplay(this.gridData);
+        this.gridContainer.innerHTML = gridDataDisplay.toHTML();
     }
 
     // Called when the user wants to move in a given direction.
     _onMove(direction) {
         console.log('User wants to move in direction ' + direction.getName());
+        if(this.nextMoveComputer.isNextMovePossible()){
+            let nextGridComputer = new NextGridComputer(direction, this.gridData);
+            let nextGrid = nextGridComputer.getNextGrid();
+
+            if(this.gridData.equals(nextGrid)){
+                return;
+            }
+            else{
+                this.gridData = nextGrid;
+                let newCell = this.newCellComputer.getNewCell();
+                this.gridData.setCell(newCell.getX(), newCell.getY(), this.newCellComputer.getNewNumber());
+                this._draw();
+                console.log(this.gridData.toString());
+
+            }
+        }
+        else{
+            alert("Game over. Please refresh the game");
+        }
     }
 }
