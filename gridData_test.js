@@ -20,7 +20,7 @@ class GridDataTest extends Test {
         this.assertEquals(expectedString, actualString);
 
         // Test 2
-        gridData.setData([
+        gridData._setData([
             [2,4,8,16],
             [0,0,0,0],
             [0,0,0,0],
@@ -36,7 +36,7 @@ class GridDataTest extends Test {
         // Test 1
         var gridData = new GridData();
         var expectedGrid = new GridData();
-        expectedGrid.setData([
+        expectedGrid._setData([
             [0, 0, 0, 0],
             [0, 0, 0, 0],
             [0, 0, 0, 0],
@@ -45,13 +45,13 @@ class GridDataTest extends Test {
         this.assertTrue(expectedGrid.equals(gridData));
 
         // Test 2
-        gridData.setData([
+        gridData._setData([
             [2,4,8,16],
             [0,0,0,0],
             [0,0,0,0],
             [16,8,4,2]
         ]);
-        expectedGrid.setData([
+        expectedGrid._setData([
             [2,4,8,16],
             [0,0,0,0],
             [0,0,0,0],
@@ -68,7 +68,7 @@ class GridDataTest extends Test {
         this.assertTrue(gridData.equals(copyGrid));
 
         // Test 2
-        gridData.setData( [[2,4,8,16],[0,0,0,0],[0,0,0,0],[16,8,4,2]] );
+        gridData._setData( [[2,4,8,16],[0,0,0,0],[0,0,0,0],[16,8,4,2]] );
         copyGrid = gridData.copy();
         this.assertTrue(gridData.equals(copyGrid));
     }

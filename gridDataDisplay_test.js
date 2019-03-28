@@ -15,7 +15,7 @@ class GridDataDisplayTest extends Test {
         this.assertEquals(expectedString, actualString);
 
         // Test 2
-        gridData.setData([
+        gridData._setData([
             [2,4,8,16],
             [0,0,0,0],
             [0,0,0,0],

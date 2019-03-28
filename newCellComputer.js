@@ -15,7 +15,7 @@ class NewCellComputer {
       for(let row = 0; row < this.grid.getSize(); row++){
          for(let col = 0; col < this.grid.getSize(); col++){
             let cell = new Cell(row, col);
-            if(this.grid.getCell(cell) == 0)
+            if(this.grid.getCellValue(cell) == 0)
                emptyCells.push(cell);
             }
       }
