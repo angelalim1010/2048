@@ -13,10 +13,10 @@ class NewCellComputerTest extends Test{
 
       for(let i = 0; i < 5; i++){
          newCell = newCellComputer.getNewCell();
-         this.assertEquals(0, grid.getCell(newCell.getX(), newCell.getY()));
+         this.assertEquals(0, grid.getCellValue(newCell));
       }
 
-      grid.setData([
+      grid._setData([
          [2, 0, 2, 2],
          [0, 4, 2, 2],
          [8, 4, 2, 0],
@@ -28,13 +28,13 @@ class NewCellComputerTest extends Test{
       for(let i = 0; i < 5; i++){
          newCell = newCellComputer.getNewCell();
          if(newCell){
-            let expectedCell = grid.getCell(newCell.getX(), newCell.getY());
-            this.assertEquals(expectedCell, grid.getCell(newCell.getX(), newCell.getY()));
-            this.assertEquals(0, grid.getCell(newCell.getX(), newCell.getY()));
+            let expectedCell = grid.getCellValue(newCell);
+            this.assertEquals(expectedCell, grid.getCellValue(newCell));
+            this.assertEquals(0, grid.getCellValue(newCell));
          }
       }
 
-      grid.setData([
+      grid._setData([
          [2, 2, 2, 2],
          [4, 4, 2, 2],
          [8, 4, 2, 4],
@@ -49,12 +49,12 @@ class NewCellComputerTest extends Test{
       }
    }
 
-   // Test for NewCellComputer.getNewNumber().
-   getNewNumber(){
+   // Test for NewCellComputer.getNewValue().
+   getNewValue(){
       let grid = new GridData();
       let newCellComputer = new NewCellComputer(grid);
       for(let i = 0; i < 10; i++){
-         this.assertTrue([2,4].includes(newCellComputer.getNewNumber()));
+         this.assertTrue([2,4].includes(newCellComputer.getNewValue()));
       }
    }
 }

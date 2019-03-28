@@ -46,7 +46,7 @@ class GridData {
     // getRow: returns a row of this.data
     getRow(row) {
         let rowSegment = new Segment();
-        rowSegment.setSegment(this.data[row]);
+        rowSegment._setSegment(this.data[row]);
         return rowSegment;
     }
 
@@ -57,7 +57,7 @@ class GridData {
             newCol.push(this.data[row][col]);
         }
         let colSegment = new Segment();
-        colSegment.setSegment(newCol);
+        colSegment._setSegment(newCol);
         return colSegment;
     }
 
@@ -93,14 +93,14 @@ class GridData {
     // copy: returns a copy of this.data (4x4 2d array)
     copy() {
         var copy = new GridData();
-        copy.setData(this.data);
+        copy._setData(this.data);
         return copy;
     }
 
     // isFull: returns true if there are no empty cells, false otherwise
     isFull() {
        for(let row = 0; row < this.getSize(); row++){
-          if(this.getRow(row).getSegment().includes(0)) return false;
+          if(this.getRow(row)._getSegment().includes(0)) return false;
        }
        return true;
     }
