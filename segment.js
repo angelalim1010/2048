@@ -14,6 +14,9 @@ class Segment {
   // WARNING! This exposes segment to the outside world
   _getSegment() { return this.segment; }
 
+  // getCellValue: returns the value at cellIndex of this.segment
+  getCellValue(cellIndex) { return this.segment[cellIndex]; }
+
   // toString: returns string version of this.data (in array format)
   toString() {
     var segmentString = "[" + this.segment.join(", ") + "]";

@@ -16,10 +16,7 @@ class NextGridComputer {
     switch(directionName){
       case "UP":
         for (let col = 0; col < nextGrid.getSize(); col++) {
-          let newColumn = new Segment();
-          newColumn._setSegment(nextGrid.getColumn(col));
-          // console.log(newColumn);
-          // console.log(newColumn._getSegment());
+          let newColumn = nextGrid.getColumn(col);
           nextGrid.setColumn(col, newColumn.compactLeft());
         }
         return nextGrid;
@@ -27,7 +24,7 @@ class NextGridComputer {
       case "DOWN":
         for (let col = 0; col < nextGrid.getSize(); col++) {
           let newColumn = new Segment();
-          newColumn._setSegment(nextGrid.getColumn(col));
+          newColumn._setSegment(nextGrid.getColumn(col)._getSegment());
           nextGrid.setColumn(col, newColumn.reverse().compactLeft().reverse());
         }
         return nextGrid;
@@ -35,7 +32,7 @@ class NextGridComputer {
       case "LEFT":
         for (let row = 0; row < nextGrid.getSize(); row++) {
           let newRow = new Segment();
-          newRow._setSegment(nextGrid.getRow(row));
+          newRow._setSegment(nextGrid.getRow(row)._getSegment());
           nextGrid.setRow(row, newRow.compactLeft());
         }
         return nextGrid;
@@ -43,7 +40,7 @@ class NextGridComputer {
       case "RIGHT":
         for (let row = 0; row < nextGrid.getSize(); row++) {
           let newRow = new Segment();
-          newRow._setSegment(nextGrid.getRow(row));
+          newRow._setSegment(nextGrid.getRow(row)._getSegment());
           nextGrid.setRow(row, newRow.reverse().compactLeft().reverse());
         }
         return nextGrid;

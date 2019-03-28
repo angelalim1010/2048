@@ -23,12 +23,12 @@ class GridData {
     }
 
     // setRow: sets a row of this.data to rowData
-    setRow(rowIndex, rowData) { this.data[rowIndex] = rowData.getSegment(); }
+    setRow(rowIndex, rowData) { this.data[rowIndex] = rowData._getSegment(); }
 
     // setColumn: sets a column of this.data to colData
     setColumn(colIndex, colData) {
         for (let row = 0; row < this.getSize(); row++) {
-            this.data[row][colIndex] = colData.getSegment()[row];
+            this.data[row][colIndex] = colData.getCellValue(row);
         }
     }
 
@@ -100,7 +100,7 @@ class GridData {
     // isFull: returns true if there are no empty cells, false otherwise
     isFull() {
        for(let row = 0; row < this.getSize(); row++){
-          if(this.getRow(row)._getSegment().includes(0)) return false;
+          if(this.data[row].includes(0)) return false;
        }
        return true;
     }
