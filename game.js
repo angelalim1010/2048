@@ -36,7 +36,6 @@ class Game {
                 this.gridData.setCell(newCell.getX(), newCell.getY(), this.newCellComputer.getNewNumber());
                 this._draw();
                 console.log(this.gridData.toString());
-
             }
         }
         else{
