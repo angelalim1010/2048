@@ -14,8 +14,9 @@ class GridData {
 
     // ############################## Set Functions ##############################
 
-    // setData: sets this.data to newData
-    setData(newData) {
+    // _setData: sets this.data to newData
+    // !! For testing purposes ONLY !!
+    _setData(newData) {
         for (let row = 0; row < newData.length; row++) {
             this.data[row] = newData[row].slice();
         }
@@ -32,10 +33,7 @@ class GridData {
     }
 
     // setCell: sets a cell of this.data to newValue
-    // Question - how should Cell be integrated into gridData?
-    // Should this.data be a whole array of Cell objects?
-    // I remember the idea was to implement it like this.position in BallZ, but how should we do that?
-    setCell(row, col, newValue) { this.data[row][col] = newValue; }
+    setCell(cell, newValue) { this.data[cell.getX()][cell.getY()] = newValue; }
 
     // ############################## Get Functions ##############################
 
@@ -63,8 +61,8 @@ class GridData {
         return colSegment;
     }
 
-    // getCell: returns the value of the cell at row, col of this.data
-    getCell(cell) {
+    // getCellValue: returns the value of the cell at row, col of this.data
+    getCellValue(cell) {
         return this.data[cell.getX()][cell.getY()];
     }
 
@@ -105,13 +103,6 @@ class GridData {
           if(this.getRow(row).getSegment().includes(0)) return false;
        }
        return true;
-    }
-
-    // createInitialGrid: creates 2 populated (non-zero) values on the grid
-    createInitialGrid() {
-        // Currently just hardcoding initial cells
-        this.setCell(1,1,2);
-        this.setCell(1,2,2);
     }
 
 }

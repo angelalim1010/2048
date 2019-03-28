@@ -1,6 +1,5 @@
 // Represents a cell on the grid, with (0,0) being the top-left corner
 
-// ** Note: Currently not using this class in the game (gridData), but we may want to discuss whether to integrate it or not **
 class Cell {
 
     constructor(x, y) {

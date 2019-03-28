@@ -14,7 +14,7 @@ class GridDataDisplay {
             res += "<div class='row'>";
             for (let col = 0; col < size; col++) {
                 let cell = new Cell(row, col);
-                res += "<div>" + data.getCell(cell) + "</div>";
+                res += "<div>" + data.getCellValue(cell) + "</div>";
             }
             res += "</div>";
         }

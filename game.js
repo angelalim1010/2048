@@ -5,11 +5,12 @@ class Game {
         this.inputHandler = new InputHandler(this._onMove.bind(this));
         this.newCellComputer = new NewCellComputer(this.gridData);
         this.gameOverChecker = new GameOverChecker(this.gridData);
+        this.gridDataInitializer = new GridDataInitializer(this.gridData);
     }
 
     // Starts a new game from the beginning.
     play() {
-        this.gridData.createInitialGrid();
+        this.gridDataInitializer.createInitialGrid();
         this._draw();
     }
 

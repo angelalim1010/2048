@@ -30,6 +30,7 @@ class NewCellComputer {
       return this._getRandomValue(1, 3) * 2;
    }
 
+    // _getRandomValue: returns a random value between lower and upper
    _getRandomValue(lower, upper) {
       return Math.floor(Math.random() * (upper - lower)) + lower;
    }
