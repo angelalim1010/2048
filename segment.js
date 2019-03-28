@@ -30,7 +30,7 @@ class Segment {
     let newData = [];
 
     // load all non-zero numbers into newData
-    console.log(this.segment);
+    // console.log(this.segment);
     newData = this.segment.filter(num => num != 0);
 
     // combine adjacent numbers if they are equal
