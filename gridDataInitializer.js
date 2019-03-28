@@ -2,7 +2,6 @@ class GridDataInitializer {
     
     constructor(gridData) {
         this.gridData = gridData;
-        console.log(gridData);
     }
 
     // createInitialGrid: populates two cells on the grid with 2's

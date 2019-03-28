@@ -18,6 +18,8 @@ class NextGridComputer {
         for (let col = 0; col < nextGrid.getSize(); col++) {
           let newColumn = new Segment();
           newColumn._setSegment(nextGrid.getColumn(col));
+          // console.log(newColumn);
+          // console.log(newColumn._getSegment());
           nextGrid.setColumn(col, newColumn.compactLeft());
         }
         return nextGrid;

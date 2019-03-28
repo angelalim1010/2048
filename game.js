@@ -23,7 +23,7 @@ class Game {
     // Called when the user wants to move in a given direction.
     _onMove(direction) {
         console.log('User wants to move in direction ' + direction.getName());
-        if(this.nextMoveComputer.isNextMovePossible()){
+        if(this.gameOverChecker.isNextMovePossible()){
             let nextGridComputer = new NextGridComputer(direction, this.gridData);
             let nextGrid = nextGridComputer.getNextGrid();
 
