@@ -4,8 +4,7 @@ class Game {
         this.gridContainer = document.getElementById('grid-container');
         this.inputHandler = new InputHandler(this._onMove.bind(this));
         this.newCellComputer = new NewCellComputer(this.gridData);
-        this.nextMoveComputer = new NextMoveComputer(this.gridData);
-
+        this.gameOverChecker = new GameOverChecker(this.gridData);
     }
 
     // Starts a new game from the beginning.
@@ -33,7 +32,7 @@ class Game {
             else{
                 this.gridData = nextGrid;
                 let newCell = this.newCellComputer.getNewCell();
-                this.gridData.setCell(newCell.getX(), newCell.getY(), this.newCellComputer.getNewNumber());
+                this.gridData.setCell(newCell.getX(), newCell.getY(), this.newCellComputer.getNewValue());
                 this._draw();
                 console.log(this.gridData.toString());
 

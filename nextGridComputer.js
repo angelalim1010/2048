@@ -11,14 +11,14 @@ class NextGridComputer {
    */
   getNextGrid() {
     let nextGrid = this.grid.copy();
-    let direction = this.direction.getName();
+    let directionName = this.direction.getName();
 
-    switch(direction){
+    switch(directionName){
       case "UP":
         for (let col = 0; col < nextGrid.getSize(); col++) {
           let newColumn = new Segment();
           newColumn.setSegment(nextGrid.getColumn(col));
-          nextGrid.setColumn(col, newColumn.compactLeft().getData());
+          nextGrid.setColumn(col, newColumn.compactLeft());
         }
         return nextGrid;
 
@@ -26,7 +26,7 @@ class NextGridComputer {
         for (let col = 0; col < nextGrid.getSize(); col++) {
           let newColumn = new Segment();
           newColumn.setSegment(nextGrid.getColumn(col));
-          nextGrid.setColumn(col, newColumn.reverse().compactLeft().reverse().getData());
+          nextGrid.setColumn(col, newColumn.reverse().compactLeft().reverse());
         }
         return nextGrid;
 
@@ -34,7 +34,7 @@ class NextGridComputer {
         for (let row = 0; row < nextGrid.getSize(); row++) {
           let newRow = new Segment();
           newRow.setSegment(nextGrid.getRow(row));
-          nextGrid.setRow(row, newRow.compactLeft().getData());
+          nextGrid.setRow(row, newRow.compactLeft());
         }
         return nextGrid;
 
@@ -42,7 +42,7 @@ class NextGridComputer {
         for (let row = 0; row < nextGrid.getSize(); row++) {
           let newRow = new Segment();
           newRow.setSegment(nextGrid.getRow(row));
-          nextGrid.setRow(row, newRow.reverse().compactLeft().reverse().getData());
+          nextGrid.setRow(row, newRow.reverse().compactLeft().reverse());
         }
         return nextGrid;
 

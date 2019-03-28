@@ -7,7 +7,7 @@ class Segment {
 
   setSegment(newSegment) { this.segment = newSegment; }
 
-  getData() { return this.segment; }
+  getSegment() { return this.segment; }
 
   // toString: returns string version of this.data (in array format)
   toString() {

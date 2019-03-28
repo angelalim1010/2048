@@ -13,7 +13,7 @@ class NewCellComputerTest extends Test{
 
       for(let i = 0; i < 5; i++){
          newCell = newCellComputer.getNewCell();
-         this.assertEquals(0, newCell.getValue());
+         this.assertEquals(0, grid.getCell(newCell.getX(), newCell.getY()));
       }
 
       grid.setData([
@@ -29,8 +29,8 @@ class NewCellComputerTest extends Test{
          newCell = newCellComputer.getNewCell();
          if(newCell){
             let expectedCell = grid.getCell(newCell.getX(), newCell.getY());
-            this.assertEquals(expectedCell.getValue(), newCell.getValue());
-            this.assertEquals(0, newCell.getValue());
+            this.assertEquals(expectedCell, grid.getCell(newCell.getX(), newCell.getY()));
+            this.assertEquals(0, grid.getCell(newCell.getX(), newCell.getY()));
          }
       }
 

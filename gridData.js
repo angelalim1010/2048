@@ -21,19 +21,19 @@ class GridData {
         }
     }
 
-    // setRow: sets a row of this.data to newRow
-    setRow(row, newRow) { this.data[row] = newRow; }
+    // setRow: sets a row of this.data to rowData
+    setRow(rowIndex, rowData) { this.data[rowIndex] = rowData.getSegment(); }
 
-    // setColumn: sets a column of this.data to newColumn
-    setColumn(col, newColumn) {
-        for (let row = 0; row < this.data.length; row++) {
-            this.data[row][col] = newColumn[row];
+    // setColumn: sets a column of this.data to colData
+    setColumn(colIndex, colData) {
+        for (let row = 0; row < this.getSize(); row++) {
+            this.data[row][colIndex] = colData.getSegment()[row];
         }
     }
 
     // setCell: sets a cell of this.data to newValue
     // Question - how should Cell be integrated into gridData?
-    // Should this.data be a whole array of Cell objects? 
+    // Should this.data be a whole array of Cell objects?
     // I remember the idea was to implement it like this.position in BallZ, but how should we do that?
     setCell(row, col, newValue) { this.data[row][col] = newValue; }
 
@@ -47,22 +47,25 @@ class GridData {
 
     // getRow: returns a row of this.data
     getRow(row) {
-        return this.data[row];
+        let rowSegment = new Segment();
+        rowSegment.setSegment(this.data[row]);
+        return rowSegment;
     }
 
     // getColumn: returns a column of this.data
     getColumn(col) {
         let newCol = [];
-        for (let row = 0; row < this.data.length; row++) {
+        for (let row = 0; row < this.getSize(); row++) {
             newCol.push(this.data[row][col]);
         }
-        return newCol;
+        let colSegment = new Segment();
+        colSegment.setSegment(newCol);
+        return colSegment;
     }
 
     // getCell: returns the value of the cell at row, col of this.data
-    getCell(row, col) {
-        let cell = new Cell(this.data[row][col], row, col);
-        return cell;
+    getCell(cell) {
+        return this.data[cell.getX()][cell.getY()];
     }
 
 
@@ -99,7 +102,7 @@ class GridData {
     // isFull: returns true if there are no empty cells, false otherwise
     isFull() {
        for(let row = 0; row < this.getSize(); row++){
-          if(this.getRow(row).includes(0)) return false;
+          if(this.getRow(row).getSegment().includes(0)) return false;
        }
        return true;
     }

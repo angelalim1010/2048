@@ -1,5 +1,5 @@
 // Computes if there are possible moves
-class NextMoveComputer {
+class GameOverChecker {
    constructor(grid){
       this.grid = grid;
    }
