@@ -5,9 +5,17 @@ class Segment {
     this.segment = [0, 0, 0, 0];
   }
 
-  setSegment(newSegment) { this.segment = newSegment; }
+  // _setSegment: sets this.segment to newSegment
+  // !! For testing purposes ONLY !!
+  // WARNING! This exposes segment to the outside world
+  _setSegment(newSegment) { this.segment = newSegment; }
 
-  getData() { return this.segment; }
+  // _getSegment: returns this.segment
+  // WARNING! This exposes segment to the outside world
+  _getSegment() { return this.segment; }
+
+  // getCellValue: returns the value at cellIndex of this.segment
+  getCellValue(cellIndex) { return this.segment[cellIndex]; }
 
   // toString: returns string version of this.data (in array format)
   toString() {
@@ -25,6 +33,7 @@ class Segment {
     let newData = [];
 
     // load all non-zero numbers into newData
+    // console.log(this.segment);
     newData = this.segment.filter(num => num != 0);
 
     // combine adjacent numbers if they are equal
@@ -42,14 +51,14 @@ class Segment {
     }
 
     let newSegment = new Segment();
-    newSegment.setSegment(newData);
+    newSegment._setSegment(newData);
     return newSegment;
   }
 
   // returns a segment REVERSED
   reverse() {
     let newSegment = new Segment();
-    newSegment.setSegment(this.segment.reverse());
+    newSegment._setSegment(this.segment.reverse());
     return newSegment;
   }
 

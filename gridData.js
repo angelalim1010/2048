@@ -14,28 +14,26 @@ class GridData {
 
     // ############################## Set Functions ##############################
 
-    // setData: sets this.data to newData
-    setData(newData) {
+    // _setData: sets this.data to newData
+    // !! For testing purposes ONLY !!
+    _setData(newData) {
         for (let row = 0; row < newData.length; row++) {
             this.data[row] = newData[row].slice();
         }
     }
 
-    // setRow: sets a row of this.data to newRow
-    setRow(row, newRow) { this.data[row] = newRow; }
+    // setRow: sets a row of this.data to rowData
+    setRow(rowIndex, rowData) { this.data[rowIndex] = rowData._getSegment(); }
 
-    // setColumn: sets a column of this.data to newColumn
-    setColumn(col, newColumn) {
-        for (let row = 0; row < this.data.length; row++) {
-            this.data[row][col] = newColumn[row];
+    // setColumn: sets a column of this.data to colData
+    setColumn(colIndex, colData) {
+        for (let row = 0; row < this.getSize(); row++) {
+            this.data[row][colIndex] = colData.getCellValue(row);
         }
     }
 
     // setCell: sets a cell of this.data to newValue
-    // Question - how should Cell be integrated into gridData?
-    // Should this.data be a whole array of Cell objects? 
-    // I remember the idea was to implement it like this.position in BallZ, but how should we do that?
-    setCell(row, col, newValue) { this.data[row][col] = newValue; }
+    setCell(cell, newValue) { this.data[cell.getX()][cell.getY()] = newValue; }
 
     // ############################## Get Functions ##############################
 
@@ -47,22 +45,25 @@ class GridData {
 
     // getRow: returns a row of this.data
     getRow(row) {
-        return this.data[row];
+        let rowSegment = new Segment();
+        rowSegment._setSegment(this.data[row]);
+        return rowSegment;
     }
 
     // getColumn: returns a column of this.data
     getColumn(col) {
         let newCol = [];
-        for (let row = 0; row < this.data.length; row++) {
+        for (let row = 0; row < this.getSize(); row++) {
             newCol.push(this.data[row][col]);
         }
-        return newCol;
+        let colSegment = new Segment();
+        colSegment._setSegment(newCol);
+        return colSegment;
     }
 
-    // getCell: returns the value of the cell at row, col of this.data
-    getCell(row, col) {
-        let cell = new Cell(this.data[row][col], row, col);
-        return cell;
+    // getCellValue: returns the value of the cell at row, col of this.data
+    getCellValue(cell) {
+        return this.data[cell.getX()][cell.getY()];
     }
 
 
@@ -92,23 +93,16 @@ class GridData {
     // copy: returns a copy of this.data (4x4 2d array)
     copy() {
         var copy = new GridData();
-        copy.setData(this.data);
+        copy._setData(this.data);
         return copy;
     }
 
     // isFull: returns true if there are no empty cells, false otherwise
     isFull() {
        for(let row = 0; row < this.getSize(); row++){
-          if(this.getRow(row).includes(0)) return false;
+          if(this.data[row].includes(0)) return false;
        }
        return true;
-    }
-
-    // createInitialGrid: creates 2 populated (non-zero) values on the grid
-    createInitialGrid() {
-        // Currently just hardcoding initial cells
-        this.setCell(1,1,2);
-        this.setCell(1,2,2);
     }
 
 }

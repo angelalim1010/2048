@@ -10,7 +10,7 @@ class SegmentTest extends Test{
         let segment = new Segment();
         this.assertEquals("[0, 0, 0, 0]", segment.toString());
 
-        segment.setSegment([2, 3, 5, 0]);
+        segment._setSegment([2, 3, 5, 0]);
         this.assertEquals("[2, 3, 5, 0]", segment.toString());
 
     }
@@ -22,8 +22,8 @@ class SegmentTest extends Test{
 
       this.assertTrue(expectedSegment.equals(segment));
 
-      segment.setSegment([1, 1, 1, 2]);
-      expectedSegment.setSegment([1, 1, 1, 2]);
+      segment._setSegment([1, 1, 1, 2]);
+      expectedSegment._setSegment([1, 1, 1, 2]);
 
       this.assertTrue(expectedSegment.equals(segment));
 
@@ -49,8 +49,8 @@ class SegmentTest extends Test{
       let expectedSegment = new Segment();
 
       for(let row = 0; row < testArrays.length; row++){
-        testSegment.setSegment(testArrays[row]);
-        expectedSegment.setSegment(expectedArrays[row]);
+        testSegment._setSegment(testArrays[row]);
+        expectedSegment._setSegment(expectedArrays[row]);
         this.assertTrue(expectedSegment.equals(testSegment.compactLeft()));
       }
 
@@ -61,10 +61,10 @@ class SegmentTest extends Test{
       let testSegment = new Segment();
       this.assertEquals("[0, 0, 0, 0]", testSegment.reverse().toString());
 
-      testSegment.setSegment([0, 4, 1, 2]);
+      testSegment._setSegment([0, 4, 1, 2]);
       this.assertEquals("[2, 1, 4, 0]", testSegment.reverse().toString());
 
-      testSegment.setSegment([2, 0, 2, 0]);
+      testSegment._setSegment([2, 0, 2, 0]);
       this.assertEquals("[0, 2, 0, 2]", testSegment.reverse().toString());
     }
 }
