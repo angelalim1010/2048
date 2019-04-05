@@ -22,23 +22,21 @@ class Game {
     _onMove(direction) {
         console.log('User wants to move in direction ' + direction.getName());
         let gameOverChecker = new GameOverChecker(this.gridData);
-        if(gameOverChecker.isNextMovePossible()){
-            let nextGridComputer = new NextGridComputer(direction, this.gridData);
-            let nextGrid = nextGridComputer.getNextGrid();
-            if(!this.gridData.equals(nextGrid)){
-                this.gridData = nextGrid;
-                let newCellComputer = new NewCellComputer(this.gridData);
-                let newCell = newCellComputer.getNewCell();
-                this.gridData.setCell(newCell, newCellComputer.getNewValue());
-                this._draw();
-<<<<<<< HEAD
-                console.log(this.gridData.toString());
-=======
->>>>>>> 2de65fd563f3046dea12ed44b8c6b7702af7b789
-            }
-        }
-        else{
+        let nextGridComputer = new NextGridComputer(direction, this.gridData);
+        let nextGrid = nextGridComputer.getNextGrid();
+        if(!gameOverChecker.isNextMovePossible()){
             alert("Game over. Please refresh the game");
+            return;
         }
+        if(this.gridData.equals(nextGrid)){
+            console.log("This move isn't possible.");
+            return;
+        }
+
+        this.gridData = nextGrid;
+        let newCellComputer = new NewCellComputer(this.gridData);
+        let newCell = newCellComputer.getNewCell();
+        this.gridData.setCell(newCell, newCellComputer.getNewValue());
+        this._draw();
     }
 }
