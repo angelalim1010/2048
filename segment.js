@@ -1,18 +1,14 @@
 // Represents an array of 4 integers
 class Segment {
 
-  constructor() {
-    this.segment = [0, 0, 0, 0];
+  constructor(segmentData) {
+    this.segment = segmentData;
   }
 
   // _setSegment: sets this.segment to newSegment
   // !! For testing purposes ONLY !!
   // WARNING! This exposes segment to the outside world
   _setSegment(newSegment) { this.segment = newSegment; }
-
-  // _getSegment: returns this.segment
-  // WARNING! This exposes segment to the outside world
-  _getSegment() { return this.segment; }
 
   // getCellValue: returns the value at cellIndex of this.segment
   getCellValue(cellIndex) { return this.segment[cellIndex]; }

@@ -45,8 +45,7 @@ class GridData {
 
     // getRow: returns a row of this.data
     getRow(row) {
-        let rowSegment = new Segment();
-        rowSegment._setSegment(this.data[row]);
+        let rowSegment = new Segment(this.data[row]);
         return rowSegment;
     }
 
@@ -56,8 +55,7 @@ class GridData {
         for (let row = 0; row < this.getSize(); row++) {
             newCol.push(this.data[row][col]);
         }
-        let colSegment = new Segment();
-        colSegment._setSegment(newCol);
+        let colSegment = new Segment(newCol);
         return colSegment;
     }
 
