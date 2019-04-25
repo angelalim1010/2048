@@ -27,7 +27,8 @@ class NewCellComputer {
 
    // Returns a number to be spawned at a cell
    getNewValue() {
-      return this._getRandomValue(1, 3) * 2;
+      let newValue = Math.random() < 0.9 ? 2 : 4;
+      return newValue;
    }
 
     // _getRandomValue: returns a random value between lower and upper
