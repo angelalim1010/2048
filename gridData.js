@@ -23,7 +23,10 @@ class GridData {
     }
 
     // setRow: sets a row of this.data to rowData
-    setRow(rowIndex, rowData) { this.data[rowIndex] = rowData._getSegment(); }
+    setRow(rowIndex, rowData) {
+        for( let col = 0; col < this.getSize(); col++)
+            this.data[rowIndex][col] = rowData.getCellValue(col);
+    }
 
     // setColumn: sets a column of this.data to colData
     setColumn(colIndex, colData) {
@@ -45,8 +48,7 @@ class GridData {
 
     // getRow: returns a row of this.data
     getRow(row) {
-        let rowSegment = new Segment();
-        rowSegment._setSegment(this.data[row]);
+        let rowSegment = new Segment(this.data[row]);
         return rowSegment;
     }
 
@@ -56,8 +58,7 @@ class GridData {
         for (let row = 0; row < this.getSize(); row++) {
             newCol.push(this.data[row][col]);
         }
-        let colSegment = new Segment();
-        colSegment._setSegment(newCol);
+        let colSegment = new Segment(newCol);
         return colSegment;
     }
 
