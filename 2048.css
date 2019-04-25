@@ -1,7 +1,9 @@
 /* h1: 2048 title */
 h1 {
 	margin-bottom:0;
+	color: #776e65;
 	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 80px;
 	font-weight: bold;
 	margin: 0;
@@ -13,18 +15,20 @@ h1 {
 p {
 	margin-top:10px;
 	margin-bottom:20px;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #888;
 	text-align:center;
 }
 
 body {
-	margin: 40px 0; background: #eee;
+	margin: 40px 0;
+	background: #faf8ef; /* color of page background */
 }
 
 
 .cell {
-	background-color: #444;
-	color: #fff;
+	background-color: rgba(238, 228, 218, 0.35); /* color of cell */
+	color: #fff; /* color of number in cell */
 	border-radius: 5px;
 	padding: 20px;
 	text-align: center;
@@ -35,14 +39,18 @@ body {
 
 
 .wrapper {
-	width: 400px;
+	background-color: #bbada0; /* color of grid background (gaps) */
+	width: 430px;
 	display: grid;
 	margin: 0 auto;
-	grid-gap: 5px;
+	grid-gap: 10px;
 	grid-template-columns: repeat(4, 100px);
 	grid-template-rows: repeat(4, 100px);
 	grid-auto-flow: row;
+	border: 10px solid #bbada0; /* color of grid border */
+	border-radius: 5px;
 }
-#legend {
+#legend{
 	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
 }

@@ -56,6 +56,19 @@ class NewCellComputerTest extends Test{
       for(let i = 0; i < 10; i++){
          this.assertTrue([2,4].includes(newCellComputer.getNewValue()));
       }
+
+      let totalRounds = 0;
+      let numOfFours = 0;
+      for(let j = 0; j < 20; j++){
+         while(totalRounds < 500){
+            totalRounds++;
+            if(newCellComputer.getNewValue() == 4) numOfFours++;
+         }
+         this.assertTrue(Math.abs(numOfFours/totalRounds - 0.1) < 0.05);
+         totalRounds = 0;
+         numOfFours = 0;
+      }
+      
    }
 }
 
