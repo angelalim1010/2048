@@ -1,12 +1,19 @@
 // Listens to keyboard events.
 class InputHandler {
-  
+
   // Parameter is a function that takes in a Direction and returns void.
   // This function will get called when a key corresponding to a direction is pressed.
   constructor(callback) {
     this.callback = callback;
     const keyDown = this._keyDown.bind(this);
     window.addEventListener('keydown', keyDown);
+    this.removeEventListener = function(){
+    window.removeEventListener('keydown', keydown)
+    }
+  }
+  //method remove event listenter
+  stopEventListener(){
+      this.removeEventListener();
   }
 
   // Gets called whenever any key is pressed.

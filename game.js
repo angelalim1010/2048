@@ -4,6 +4,8 @@ class Game {
         this.gridContainer = document.getElementById('grid-container');
         this.inputHandler = new InputHandler(this._onMove.bind(this));
         this.gridDataInitializer = new GridDataInitializer(this.gridData);
+        this.legendDisplay = document.getElementById('legend');
+
     }
 
     // Starts a new game from the beginning.
@@ -24,16 +26,24 @@ class Game {
         let gameOverChecker = new GameOverChecker(this.gridData);
         let nextGridComputer = new NextGridComputer(direction, this.gridData);
         let nextGrid = nextGridComputer.getNextGrid();
+        //let legendDisplay =
         if(!gameOverChecker.isNextMovePossible()){
-            alert("Game over. Please refresh the game");
+        //    alert("Game over. Please refresh the browser");
+        //    document.getElementById('gameOver').style.display = 'block';
+            this.legendDisplay.innerHTML = 'Game over<br/>Refresh browser to play again';
+
             return;
         }
         if(this.gridData.equals(nextGrid)){
             console.log("This move isn't possible.");
+            this.legendDisplay.innerHTML =
+        'This move is not possible<b><br/>Try another move';
             return;
+
         }
 
         this.gridData = nextGrid;
+        this.legendDisplay.innerHTML = '';
         let newCellComputer = new NewCellComputer(this.gridData);
         let newCell = newCellComputer.getNewCell();
         this.gridData.setCell(newCell, newCellComputer.getNewValue());

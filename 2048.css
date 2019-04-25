@@ -5,13 +5,13 @@
 html, body {
 	margin: 0;
 	padding: 0;
-  
+
 	background: #faf8ef;
 	color: $text-color;
 	font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
 	font-size: 18px;
 }
-  
+
 body {
 	margin: 80px 0;
 }
@@ -30,20 +30,20 @@ h1.title {
 	align-content: center;
 }
 
-h1, p { 
-	text-align:center; 
+h1, p {
+	text-align:center;
 }
 
-h1 { 
-	margin-bottom:0; 
+h1 {
+	margin-bottom:0;
 }
 
-p { 
-	margin-top:10px; margin-bottom:20px; color: #888; 
+p {
+	margin-top:10px; margin-bottom:20px; color: #888;
 }
 
-body { 
-	margin: 40px 0; background: #eee; 
+body {
+	margin: 40px 0; background: #eee;
 }
 .grid {
 	max-width: 600px;
@@ -61,10 +61,13 @@ body {
 }
 
 .row div {
-	background: #fff; 
-	text-align: center; 
-	color: #888; 
-	font-size: 90%; 
+	background: #fff;
+	text-align: center;
+	color: #888;
+	font-size: 90%;
 	border:1px solid #ddd;
 	display: table-cell;
+}
+#legend {
+	text-align: center;
 }
