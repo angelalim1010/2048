@@ -10,20 +10,24 @@ class GridDataDisplay {
         let size = this.gridData.getSize();
         var res = "<div class='wrapper'>";
         for (let row = 0; row < size; row++) {
-            // res += "<tr>";
             for (let col = 0; col < size; col++) {
                 let cell = new Cell(row, col);
+                let cellValue = this.gridData.getCellValue(cell);
                 // If cell if a 0 (empty), draw whitespace (&nbsp;) on board
-                res += "<div class='cell'>";
-                if (this.gridData.getCellValue(cell) == 0) {
+                res += "<div class='cell'";
+                if (cellValue == 0) {
+                    res += ">";
                     res += "&nbsp;";
                 }
                 else {
-                    res += this.gridData.getCellValue(cell);
+                    let cellColor = new CellColor(cellValue);
+                    let styleString = " style='background-color:rgb(" + cellColor.getColor() + ")';";
+                    res += styleString + ">";
+                    res += cellValue;
                 }
+
                 res += "</div>"
             }
-            // res += "</tr>";
         }
         res += "</div>";
         return res;

@@ -27,7 +27,7 @@ body {
 
 
 .cell {
-	background-color: rgba(238, 228, 218, 0.35); /* color of cell */
+	background-color: rgba(238, 228, 218, 0.35); /* color of cell background */
 	color: #fff; /* color of number in cell */
 	border-radius: 5px;
 	padding: 20px;
