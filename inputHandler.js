@@ -8,10 +8,10 @@ class InputHandler {
     const keyDown = this._keyDown.bind(this);
     window.addEventListener('keydown', keyDown);
     this.removeEventListener = function(){
-    window.removeEventListener('keydown', keydown)
+    window.removeEventListener('keydown', keyDown)
     }
   }
-  //method remove event listenter
+//stop listening to keyboard events
   stopEventListener(){
       this.removeEventListener();
   }

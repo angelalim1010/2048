@@ -26,12 +26,10 @@ class Game {
         let gameOverChecker = new GameOverChecker(this.gridData);
         let nextGridComputer = new NextGridComputer(direction, this.gridData);
         let nextGrid = nextGridComputer.getNextGrid();
-        //let legendDisplay =
         if(!gameOverChecker.isNextMovePossible()){
         //    alert("Game over. Please refresh the browser");
-        //    document.getElementById('gameOver').style.display = 'block';
+            this.inputHandler.stopEventListener();
             this.legendDisplay.innerHTML = 'Game over<br/>Refresh browser to play again';
-
             return;
         }
         if(this.gridData.equals(nextGrid)){
@@ -39,7 +37,6 @@ class Game {
             this.legendDisplay.innerHTML =
         'This move is not possible<b><br/>Try another move';
             return;
-
         }
 
         this.gridData = nextGrid;
