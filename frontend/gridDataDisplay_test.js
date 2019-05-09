@@ -11,7 +11,7 @@ class GridDataDisplayTest extends Test {
         var gridData = new GridData();
         var gridDataDisplay = new GridDataDisplay(gridData);
         var actualString = gridDataDisplay.toHTML();
-        var expectedString = "<div class='grid'><div class='row'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='row'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='row'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='row'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div></div>";
+        var expectedString = "<div class='wrapper'><div class='cell'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='cell'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='cell'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='cell'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div></div>";
         this.assertEquals(expectedString, actualString);
 
         // Test 2
@@ -22,7 +22,7 @@ class GridDataDisplayTest extends Test {
             [16,8,4,2]
         ]);
         actualString = gridDataDisplay.toHTML();
-        expectedString = "<div class='grid'><div class='row'><div>2</div><div>4</div><div>8</div><div>16</div></div><div class='row'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='row'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='row'><div>16</div><div>8</div><div>4</div><div>2</div></div></div>";
+        expectedString = "<div class='wrapper'><div class='cell'><div>2</div><div>4</div><div>8</div><div>16</div></div><div class='cell'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='cell'><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div><div class='cell'><div>16</div><div>8</div><div>4</div><div>2</div></div></div>";
         this.assertEquals(expectedString, actualString);
     }
 }

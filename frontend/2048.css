@@ -55,3 +55,28 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #F32D2D;
 }
+
+#scores-container{
+	height:75px;
+	display: block;
+}
+
+#score{
+	background-color: #bbada0;
+	text-align: center;
+	margin: auto;
+	padding: 10px 25px;
+	width: 70px;
+	border-radius: 3px;
+	font-weight: bold;
+}
+
+#score-label{
+	color: #eee4da;
+	font-size: 13px;
+}
+
+#score-number{
+	color: white;
+	font-size: 20px;
+}
