@@ -2,9 +2,11 @@ class Game {
     constructor() {
         this.gridData = new GridData();
         this.gridContainer = document.getElementById('grid-container');
+        this.scoresContainer = document.getElementById('scores-container');
         this.inputHandler = new InputHandler(this._onMove.bind(this));
         this.gridDataInitializer = new GridDataInitializer(this.gridData);
         this.legendDisplay = document.getElementById('legend');
+        this.score = 0;
 
     }
 
@@ -18,6 +20,8 @@ class Game {
     _draw() {
         let gridDataDisplay = new GridDataDisplay(this.gridData);
         this.gridContainer.innerHTML = gridDataDisplay.toHTML();
+        let scoreBoardDisplay = new ScoreBoardDisplay(this.score);
+        this.scoresContainer.innerHTML = scoreBoardDisplay.toHTML();
     }
 
     // Called when the user wants to move in a given direction.
@@ -39,7 +43,13 @@ class Game {
             return;
         }
 
+        let newScoreComputer = new NewScoreComputer(this.gridData, nextGrid);
+        console.log(this.gridData.toString());
+        console.log("old score: "+this.score);
+        this.score += newScoreComputer.getNewScore();
         this.gridData = nextGrid;
+        console.log(this.gridData.toString());
+        console.log("new score: "+this.score);
         this.legendDisplay.innerHTML = '';
         let newCellComputer = new NewCellComputer(this.gridData);
         let newCell = newCellComputer.getNewCell();
