@@ -74,9 +74,11 @@ body {
 #score-label{
 	color: #eee4da;
 	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 #score-number{
 	color: white;
 	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
 }
