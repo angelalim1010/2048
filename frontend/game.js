@@ -1,11 +1,15 @@
 class Game {
     constructor() {
-        this.gridData = new GridData();
         this.gridContainer = document.getElementById('grid-container');
         this.scoresContainer = document.getElementById('scores-container');
+        this.legendDisplay = document.getElementById('legend');
+        this.highscoreContainer = document.getElementById('highscore-container');
+
+        this.gridData = new GridData();
         this.inputHandler = new InputHandler(this._onMove.bind(this));
         this.gridDataInitializer = new GridDataInitializer(this.gridData);
-        this.legendDisplay = document.getElementById('legend');
+        this.highscoreDisplay = new HighscoreDisplay();
+
         this.score = 0;
 
     }
@@ -22,6 +26,8 @@ class Game {
         this.gridContainer.innerHTML = gridDataDisplay.toHTML();
         let scoreBoardDisplay = new ScoreBoardDisplay(this.score);
         this.scoresContainer.innerHTML = scoreBoardDisplay.toHTML();
+        let highscoreDisplay = new HighscoreDisplay(this.score);
+        this.highscoreContainer.innerHTML = highscoreDisplay.toHTML();
     }
 
     // Called when the user wants to move in a given direction.

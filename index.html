@@ -21,16 +21,21 @@
 
     <div id="grid-container" align-content="center"></div>
 
-
-	<div id="legend" </div>
+	<div id="legend"></div>
 
     <p>
         <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
     </p>
+    
+    <div id="highscore-container"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!--JSON file-->
+    <script type="text/javascript" src="frontend/dummy_highscores.json"></script>
+
     <!--Game Functions-->
+    <script src="frontend/highscoreDisplay.js"></script>
     <script src="frontend/cellColor.js"></script>
 	<script src="frontend/gridDataInitializer.js"></script>
 	<script src="frontend/gameOverChecker.js"></script>

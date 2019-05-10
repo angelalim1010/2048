@@ -50,18 +50,20 @@ body {
 	border: 10px solid #bbada0; /* color of grid border */
 	border-radius: 5px;
 }
-#legend{
+
+
+#legend {
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
 	color: #F32D2D;
 }
 
-#scores-container{
+#scores-container {
 	height:75px;
 	display: block;
 }
 
-#score{
+#score {
 	background-color: #bbada0;
 	text-align: center;
 	margin: auto;
@@ -71,14 +73,36 @@ body {
 	font-weight: bold;
 }
 
-#score-label{
+#score-label {
 	color: #eee4da;
 	font-size: 13px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-#score-number{
+#score-number {
 	color: white;
 	font-size: 20px;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+#highscore-container {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#highscore-container table {
+	border: 5px solid #bbada0;
+	border-radius: 5px; 
+	background-color: #bbada0;
+	margin: 0 auto;
+}
+
+#highscore-container th {
+	color: #eee4da;
+	margin: 0 auto;
+}
+
+#highscore-container td {
+	color: white;
+	margin: 0 auto;
 }
