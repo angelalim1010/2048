@@ -3,22 +3,22 @@ class HighscoreDisplay {
     constructor() {
         // const data = jQuery.getJSON("frontend/dummy_highscores.json");
         // const data = JSON.parse("frontend/dummy_highscores.json")
-        this.data = {
-            "highscores": [
-                {
-                    "name": "Apples",
-                    "score": 1024
-                },
-                {
-                    "name": "Bobby",
-                    "score": 2048
-                },
-                {
-                    "name": "Cindy",
-                    "score": 4096
-                }
-            ]
-        }
+        this.data = jQuery.getJSON("http://localhost:8080/hello")
+            // "highscores": [
+            //     {
+            //         "name": "Apples",
+            //         "score": 1024
+            //     },
+            //     {
+            //         "name": "Bobby",
+            //         "score": 2048
+            //     },
+            //     {
+            //         "name": "Cindy",
+            //         "score": 4096
+            //     }
+            // ]
+
         console.log(this.data);
     }
 
@@ -35,5 +35,5 @@ class HighscoreDisplay {
         res += "</table>";
         return res;
     }
-    
+
 }

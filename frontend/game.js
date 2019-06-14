@@ -2,9 +2,9 @@ class Game {
     constructor() {
         this.gridContainer = document.getElementById('grid-container');
         this.scoresContainer = document.getElementById('scores-container');
-        this.legendDisplay = document.getElementById('legend');
         this.highscoreContainer = document.getElementById('highscore-container');
 
+        this.legendDisplay = new LegendDisplay();
         this.gridData = new GridData();
         this.inputHandler = new InputHandler(this._onMove.bind(this));
         this.gridDataInitializer = new GridDataInitializer(this.gridData);
@@ -37,15 +37,12 @@ class Game {
         let nextGridComputer = new NextGridComputer(direction, this.gridData);
         let nextGrid = nextGridComputer.getNextGrid();
         if(!gameOverChecker.isNextMovePossible()){
-        //    alert("Game over. Please refresh the browser");
             this.inputHandler.stopEventListener();
-            this.legendDisplay.innerHTML = 'Game over<br/>Refresh browser to play again';
-            return;
+            this.legendDisplay.setGameOverMessage();
         }
         if(this.gridData.equals(nextGrid)){
             console.log("This move isn't possible.");
-            this.legendDisplay.innerHTML =
-        'This move is not possible<b><br/>Try another move';
+            this.legendDisplay.setMoveNotPossibleMessage();
             return;
         }
 

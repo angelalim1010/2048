@@ -26,20 +26,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileReader;
+import java.io.Reader;
+import com.google.gson.Gson;
+
 
 // With @WebServlet annotation the webapp/WEB-INF/web.xml is no longer required.
 @WebServlet(name = "HelloAppEngine", value = "/hello")
 public class HelloAppEngine extends HttpServlet {
-
+    Gson gson = new Gson();
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
     Properties properties = System.getProperties();
 
-    response.setContentType("text/plain");
-    response.getWriter().println("Hello App Engine - Standard using "
-            + SystemProperty.version.get() + " Java "
-            + properties.get("java.specification.version"));
+       Object obj = gson.fromJson(new FileReader("/Users/angelalim/2048/frontend/dummy_highscores.json"), Object.class);
+
+
+    response.setContentType("application/json");
+    response.getWriter().println(obj);
   }
 
   public static String getInfo() {
