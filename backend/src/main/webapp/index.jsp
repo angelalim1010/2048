@@ -55,6 +55,7 @@
     <script type="text/javascript" src="frontend/dummy_highscores.json"></script>
 
     <!--Game Functions-->
+    <script src="frontend/scoreManager.js"></script>
     <script src="frontend/highscoreDisplay.js"></script>
     <script src="frontend/cellColor.js"></script>
 	<script src="frontend/gridDataInitializer.js"></script>

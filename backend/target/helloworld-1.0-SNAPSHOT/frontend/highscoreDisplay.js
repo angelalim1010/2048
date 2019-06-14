@@ -3,25 +3,10 @@ class HighscoreDisplay {
     constructor() {
         // const data = jQuery.getJSON("frontend/dummy_highscores.json");
         // const data = JSON.parse("frontend/dummy_highscores.json")
-        this.data = jQuery.getJSON("/hello")
-            // "highscores": [
-            //     {
-            //         "name": "Apples",
-            //         "score": 1024
-            //     },
-            //     {
-            //         "name": "Bobby",
-            //         "score": 2048
-            //     },
-            //     {
-            //         "name": "Cindy",
-            //         "score": 4096
-            //     }
-            // ]
-        console.log(typeof(this.data))
+        this.data = $.getJSON("/hello", function(data){
+            console.log(data);
+        });
         console.log(this.data);
-        this.responseText = this.data.responseText;
-        console.log(this.responseText)
     }
 
     toHTML() {

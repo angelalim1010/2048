@@ -26,6 +26,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
 import com.google.gson.Gson;
@@ -38,9 +39,8 @@ public class HelloAppEngine extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-    Properties properties = System.getProperties();
-
-       Object obj = gson.fromJson(new FileReader("/Users/angelalim/2048/frontend/dummy_highscores.json"), Object.class);
+      Properties properties = System.getProperties();
+       Object obj = gson.fromJson(new FileReader("dummy_highscores.json"), Object.class);
 
 
     response.setContentType("application/json");
