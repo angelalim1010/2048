@@ -24,8 +24,9 @@ class Game {
         let gridDataDisplay = new GridDataDisplay(this.gridData);
         this.gridContainer.innerHTML = gridDataDisplay.toHTML();
         this.scoresContainer.innerHTML = this.scoreManager.getScoreDisplay();
-        let highscoreDisplay = new HighscoreDisplay(this.score);
-        this.highscoreContainer.innerHTML = highscoreDisplay.toHTML();
+        let highscoreDisplay = new HighscoreDisplay(this.highscoreContainer);
+        // this.highscoreContainer.innerHTML = highscoreDisplay.toHTML()
+        highscoreDisplay.init();
     }
 
     // Called when the user wants to move in a given direction.

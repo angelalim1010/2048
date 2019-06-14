@@ -1,19 +1,25 @@
 // Displays the list of highscores
 class HighscoreDisplay {
-    constructor() {
-        // const data = jQuery.getJSON("frontend/dummy_highscores.json");
-        // const data = JSON.parse("frontend/dummy_highscores.json")
-        this.data = $.getJSON("/hello", function(data){
-            console.log(data);
-        });
-        console.log(this.data);
+    constructor(container) {
+        this.container = container;
     }
 
-    toHTML() {
-        console.log(this.data);
-        console.log(this.data.responseText);
-        console.log(this.responseText);
-        const highscoresArr = this.data.responseText.highscores;
+    init() {
+        var container = this.container;
+        var setHtmlFunction = this._toHTML;
+        $.getJSON("/hello", 'foo', function(data, status, jgxhr){
+            console.log("Server replied" );
+            console.log(data);
+            container.innerHTML = setHtmlFunction(data);
+        });
+        console.log(' server contacted' );
+    }
+
+    _toHTML(data) {
+        console.log("data in toHTML():", data);
+        // console.log(this.data.responseText);
+        // console.log(this.responseText);
+        const highscoresArr = data.highscores;
 
         console.log(highscoresArr);
         var res = "<table>";
