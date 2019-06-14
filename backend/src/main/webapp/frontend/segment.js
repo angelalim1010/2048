@@ -3,10 +3,7 @@ class Segment {
 
   constructor(segmentData) {
     this.segment = segmentData;
-    this.score = 0;
   }
-
-  getNewScore(){ return this.score; }
 
   // _setSegment: sets this.segment to newSegment
   // !! For testing purposes ONLY !!
@@ -40,7 +37,6 @@ class Segment {
       if (newData[col] == newData[col + 1]) {
         newData[col] = 2 * newData[col];
         newData.splice(col + 1, 1);
-        this.score += newData[col];
       }
     }
 

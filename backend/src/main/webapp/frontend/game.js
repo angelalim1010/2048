@@ -8,9 +8,8 @@ class Game {
         this.gridData = new GridData();
         this.inputHandler = new InputHandler(this._onMove.bind(this));
         this.gridDataInitializer = new GridDataInitializer(this.gridData);
+        this.scoreManager = new ScoreManager();
         this.highscoreDisplay = new HighscoreDisplay();
-
-        this.score = 0;
 
     }
 
@@ -24,8 +23,7 @@ class Game {
     _draw() {
         let gridDataDisplay = new GridDataDisplay(this.gridData);
         this.gridContainer.innerHTML = gridDataDisplay.toHTML();
-        let scoreBoardDisplay = new ScoreBoardDisplay(this.score);
-        this.scoresContainer.innerHTML = scoreBoardDisplay.toHTML();
+        this.scoresContainer.innerHTML = this.scoreManager.getScoreDisplay();
         let highscoreDisplay = new HighscoreDisplay(this.score);
         this.highscoreContainer.innerHTML = highscoreDisplay.toHTML();
     }
@@ -46,13 +44,8 @@ class Game {
             return;
         }
 
-        let newScoreComputer = new NewScoreComputer(this.gridData, nextGrid);
-        console.log(this.gridData.toString());
-        console.log("old score: "+this.score);
-        this.score += newScoreComputer.getNewScore();
+        this.scoreManager.updateScore(this.gridData, nextGrid);
         this.gridData = nextGrid;
-        console.log(this.gridData.toString());
-        console.log("new score: "+this.score);
         this.legendDisplay.innerHTML = '';
         let newCellComputer = new NewCellComputer(this.gridData);
         let newCell = newCellComputer.getNewCell();
