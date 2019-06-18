@@ -6,49 +6,62 @@
     <meta name="keywords" content="HTML,CSS,JavaScript">
 
     <title>2048</title>
-	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link href="2048.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" type="image/png" sizes="16x16" href="frontend/favicon-16x16.png">
+    <link href="frontend/2048.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <!--Div Elements-->
-    <div class="heading">
-        <h1 class="title">2048</h1>
+    <div class="heading" width="40%">
+        <h1 class="title">2048 </h1>
     </div>
     <p>Join the numbers and get to the <strong>2048 tile!</strong></p>
 
+    <div id="scores-container"></div>
+
     <div id="grid-container" align-content="center"></div>
-    
+
+	<div id="legend"></div>
+
     <p>
         <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
     </p>
 
+    <div id="highscore-container"></div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!--JSON file-->
+    <script type="text/javascript" src="frontend/dummy_highscores.json"></script>
+
     <!--Game Functions-->
-	<script src="gridDataInitializer.js"></script>
-	<script src="gameOverChecker.js"></script>
-	<script src="cell.js"></script>
-	<script src="newCellComputer.js"></script>
-	<script src="segment.js"></script>
-    <script src="gridDataDisplay.js"></script>
-    <script src="nextGridComputer.js"></script>
-	<script src="direction.js"></script>
-    <script src="gridData.js"></script>
-	<script src="inputHandler.js"></script>
-    <script src="game.js"></script>
+    <script src="frontend/highscoreDisplay.js"></script>
+    <script src="frontend/cellColor.js"></script>
+	<script src="frontend/gridDataInitializer.js"></script>
+	<script src="frontend/gameOverChecker.js"></script>
+	<script src="frontend/cell.js"></script>
+	<script src="frontend/newCellComputer.js"></script>
+	<script src="frontend/segment.js"></script>
+    <script src="frontend/gridDataDisplay.js"></script>
+    <script src="frontend/scoreManager.js"></script>
+    <script src="frontend/nextGridComputer.js"></script>
+	<script src="frontend/direction.js"></script>
+    <script src="frontend/gridData.js"></script>
+	<script src="frontend/inputHandler.js"></script>
+    <script src="frontend/legendDisplay.js"></script>
+    <script src="frontend/game.js"></script>
 
     <!--Unit Tests-->
-    <script src="test.js"></script>
-    <script src="nextGridComputer_test.js"></script>
-    <script src="gridData_test.js"></script>
-    <script src="gridDataDisplay_test.js"></script>
-	<script src="segment_test.js"></script>
-	<script src="newCellComputer_test.js"></script>
-	<script src="gameOverChecker_test.js"></script>
+    <script src="frontend/test.js"></script>
+    <script src="frontend/nextGridComputer_test.js"></script>
+    <script src="frontend/gridData_test.js"></script>
+    <script src="frontend/gridDataDisplay_test.js"></script>
+	<script src="frontend/segment_test.js"></script>
+	<script src="frontend/newCellComputer_test.js"></script>
+	<script src="frontend/gameOverChecker_test.js"></script>
 
     <!--Main Function-->
-    <script src="2048.js"></script>
+    <script src="frontend/2048.js"></script>
 
 </body>
 </html>
